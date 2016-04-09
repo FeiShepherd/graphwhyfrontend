@@ -1,0 +1,37 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+    <ion-side-menu side="left" id="side-menu21">
+        <ion-header-bar class="bar-stable">
+            <div class="title">Menu</div>
+        </ion-header-bar>
+        <ion-content padding="false" class="side-menu-left has-header">
+            <ion-list>
+                <ion-item menu-close href="#/app/identities">Identities</ion-item>
+                <ion-item ui-sref="database" menu-close="" class="disabled">Database</ion-item>
+                <ion-item ui-sref="menu.questionSet2" menu-close="" class="disabled">Create Question</ion-item>
+                <ion-item class="item-divider">Question Sets</ion-item>
+            </ion-list>
+            <ion-list>
+                <ion-item menu-close href="#/app/question">Presidential Candidets</ion-item>
+                <ion-item menu-close href="#/app/question">Conspiracy Theories</ion-item>
+                <ion-item menu-close href="#/app/question">Enviormental Beliefs</ion-item>
+            </ion-list>
+            <div class="spacer" style="width: 268px; height: 141px;"></div>
+            <div class="button-bar">
+                <a ui-sref="menu.aboutUs" menu-close="" id="menu-button2" class="button button-stable  button-block">About Us</a>
+                <button id="menu-button4" class="button button-stable  button-block">Log Out</button>
+            </div>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>
