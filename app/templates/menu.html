@@ -18,8 +18,9 @@
         <ion-content padding="false" class="side-menu-left has-header">
             <ion-list>
                 <ion-item menu-close href="#/app/identities">Identities</ion-item>
-                <ion-item ui-sref="database" menu-close="" class="disabled">Database</ion-item>
-                <ion-item ui-sref="menu.questionSet2" menu-close="" class="disabled">Create Question</ion-item>
+                <ion-item menu-close="" class="disabled" href="#/app/browse">Database</ion-item>
+                <ion-item menu-close="" class="disabled" href="#/app/browse">Create Question</ion-item>
+
                 <ion-item class="item-divider">Question Sets</ion-item>
             </ion-list>
             <ion-list>
@@ -28,10 +29,14 @@
                 <ion-item menu-close href="#/app/question">Enviormental Beliefs</ion-item>
             </ion-list>
             <div class="spacer" style="width: 268px; height: 141px;"></div>
-            <div class="button-bar">
-                <a ui-sref="menu.aboutUs" menu-close="" id="menu-button2" class="button button-stable  button-block">About Us</a>
-                <button id="menu-button4" class="button button-stable  button-block">Log Out</button>
-            </div>
+              <div class="tabs">
+                <a class="tab-item">
+                  About Us
+                </a>
+                <a class="tab-item">
+                  Log Out
+                </a>
+              </div>
         </ion-content>
     </ion-side-menu>
 </ion-side-menus>
