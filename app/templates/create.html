@@ -1,0 +1,44 @@
+<ion-view view-title="Welcome">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div class="spacer" style="width: 300px; height: 35px;"></div>
+        <h1 id="welcome-heading4" style="color:#000000;font-weight:lighter;text-align:center;">GraphWhy</h1>
+        <div id="welcome-markdown3" style="color:#A5A5A5;text-align:center;">
+            <p>Create Question</p>
+        </div>
+        <div class="spacer" style="width: 300px; height: 40px;"></div>
+        <form class="list">
+            <label class="item item-input">
+                <span class="input-label">Prompt</span>
+                <input type="text" placeholder="" ng-model="questionData.prompt">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Explain</span>
+                <input type="text" placeholder="" ng-model="questionData.explain">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Tags</span>
+                <button class="button button-small button-stable" ng-repeat="m in myTags track by $index" on-tap="removeTag(m)">{{m.title}}</button><input type="text" placeholder="" disabled>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Search for tags</span>
+                <input type="text" placeholder="" ng-model="search">
+            </label>
+            <button class="button button-small button-stable" ng-repeat="t in tags | filter:search track by $index" ng-click="addTag(t)">
+              {{t.title}}
+            </button>
+
+            <label class="item item-input" ng-repeat="o in options track by $index">
+                <span class="input-label">{{$index}}</span>
+                <input type="text" placeholder="" ng-model="answers[$index]">
+                <button class="button button-balanced" on-tap="addOption()" ng-show="$index==options.length-1">
+                  Add
+                </button>
+            </label>
+
+
+            <button class="button button-block button-positive" type="submit" on-tap="createQuestion()">Create Question</button>
+        </form>
+    </ion-content>
+</ion-view>
+
+

@@ -3,12 +3,28 @@ angular.module('starter.controllers', ['config'])
     $httpProvider.defaults.withCredentials = true;
     //rest of route code
 })
-.controller('AppCtrl', function(env, $scope, $http, $state, $ionicHistory) {
+.controller('AppCtrl', function(env, $scope, $http, $state, $ionicHistory, $rootScope) {
   $scope.loggedin = false;
   $scope.loginData = {};
   $scope.registerData = {};
   $scope.welcome = 'login';
   $scope.tags = [];
+  $rootScope.myTags = [];
+
+  $scope.addTag = function(t){
+    for(var i = 0; i < $scope.myTags.length; i++){
+      if(t == $scope.myTags[i]) return;
+    }
+    $rootScope.myTags.push(t)
+  }
+  $scope.removeTag = function(t){
+    for(var i = 0; i < $scope.myTags.length; i++){
+      if(t == $scope.myTags[i]){
+        $scope.myTags.splice(i,1);
+        return;
+      }
+    }
+  }
   $scope.getTags = function(){
     $http.get(env.api+'/tag').then(function(data){
       $scope.tags = [];
@@ -27,6 +43,7 @@ angular.module('starter.controllers', ['config'])
       $ionicHistory.nextViewOptions({
         disableBack: true
       });
+      $scope.loggedin = false;
       $state.go('app.welcome');
     })
   }
@@ -83,6 +100,40 @@ angular.module('starter.controllers', ['config'])
 
 .controller('sorryCtrl', function($scope, $stateParams) {
 
+})
+
+.controller('createCtrl', function(env, $scope, $stateParams, $rootScope,$http) {
+  $scope.questionData = {};
+  $scope.options = ['']
+  $scope.answers = []
+  var TagsUsedToIdArray = function(){
+    var tempArr = [];
+    for(var i = 0; i < $rootScope.myTags.length; i++){
+      tempArr.push($rootScope.myTags[i]._id)
+    }
+    return tempArr;
+  }
+  $scope.addOption = function(){
+    $scope.options.push('')
+  }
+  $scope.createQuestion = function(){
+    var _arr = $scope.answers;
+    var _prompt = $scope.questionData.prompt;
+    var _explain = $scope.questionData.explain;
+    var _tag = TagsUsedToIdArray();
+
+    console.log(_arr,_prompt,_explain,_tag)
+
+    $http.post(env.api+"/question", {
+      prompt:_prompt,
+      explain: _explain,
+      answers: _arr,
+      tags: _tag
+    }).success(function(data){
+      console.log(data);
+    })
+
+  }
 })
 
 .controller('myquestionsCtrl', function( env, $scope, $http) {
