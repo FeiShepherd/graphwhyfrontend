@@ -36,25 +36,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/welcome',
     views: {
       'menuContent': {
-        templateUrl: 'templates/welcome.html'
+        templateUrl: 'templates/welcome.html',
+        controller: 'welcomeCtrl'
       }
     }
   })
-
-  .state('app.identities', {
-      url: '/identities',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/identities.html'
-        }
-      }
-    })
-    .state('app.question', {
-      url: '/question',
+    .state('app.t', {
+      url: '/t/:tag',
       views: {
         'menuContent': {
           templateUrl: 'templates/question.html',
-          controller: 'PlaylistsCtrl'
+          controller: 'questionCtrl'
         }
       }
     })
@@ -66,7 +58,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-
+    .state('app.myquestions', {
+      url: '/myquestions',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/myquestions.html',
+          controller: 'myquestionsCtrl'
+        }
+      }
+    })
+    .state('app.sorry', {
+      url: '/sorry',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/sorry.html',
+          controller: 'sorryCtrl'
+        }
+      }
+    })
   .state('app.aboutus', {
     url: '/aboutus',
     views: {

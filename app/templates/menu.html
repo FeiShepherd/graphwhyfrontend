@@ -17,23 +17,25 @@
         </ion-header-bar>
         <ion-content padding="false" class="side-menu-left has-header">
             <ion-list>
-                <ion-item menu-close href="#/app/identities">Identities</ion-item>
-                <ion-item menu-close="" class="disabled" href="#/app/browse">Database</ion-item>
-                <ion-item menu-close="" class="disabled" href="#/app/browse">Create Question</ion-item>
-
-                <ion-item class="item-divider">Question Sets</ion-item>
+            <ion-item class="item-divider">Tags</ion-item>
             </ion-list>
             <ion-list>
-                <ion-item menu-close href="#/app/question">Presidential Candidets</ion-item>
-                <ion-item menu-close href="#/app/question">Conspiracy Theories</ion-item>
-                <ion-item menu-close href="#/app/question">Enviormental Beliefs</ion-item>
+                <ion-item menu-close href="{{'#/app/t/' + t.title}}" ng-repeat="t in tags" ng-click="reset()">#{{t.title}}</ion-item>
+            </ion-list>
+            <ion-item class="item-divider">Profile</ion-item>
+            </ion-list>
+            <ion-list>
+                <ion-item menu-close href="#/app/question">Create Question</ion-item>
+                <ion-item menu-close href="#/app/myquestions">My Questions</ion-item>
+                <ion-item menu-close href="#/app/question">
+                Settings</ion-item>
             </ion-list>
             <div class="spacer" style="width: 268px; height: 141px;"></div>
-              <div class="tabs">
+              <div class="tabs" style="bottom:0px">
                 <a class="tab-item">
                   About Us
                 </a>
-                <a class="tab-item">
+                <a class="tab-item" menu-close ng-click="doLogout()">
                   Log Out
                 </a>
               </div>

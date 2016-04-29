@@ -7,24 +7,36 @@
         </div>
         <div class="spacer" style="width: 300px; height: 40px;"></div>
         <div class="button-bar">
-            <button id="welcome-button7" class="button button-positive  button-block">Sign Up</button>
-            <button id="welcome-button8" class="button button-positive  button-block">Log In</button>
+            <button id="welcome-button7" class="button button-positive  button-block" ng-click="switchWelcome('register')" ng-disabled="welcome=='register'">Sign Up</button>
+            <button id="welcome-button8" class="button button-positive  button-block" ng-click="switchWelcome('login')" ng-disabled="welcome=='login'">Log In</button>
         </div>
-        <form class="list"></form>
-        <form class="list">
+        <form class="list" ng-show="welcome=='login'" ng-submit="doLogin()">
             <label class="item item-input">
                 <span class="input-label">Email</span>
-                <input type="text" placeholder="">
+                <input type="text" placeholder="" ng-model="loginData.email">
             </label>
             <label class="item item-input">
                 <span class="input-label">Password</span>
-                <input type="text" placeholder="">
+                <input type="password" placeholder="" ng-model="loginData.password">
+            </label>
+            <button class="button button-block button-positive" type="submit">Login</button>
+        </form>
+        <form class="list" ng-show="welcome=='register'" ng-submit="doRegister()">
+            <label class="item item-input">
+                <span class="input-label">Email</span>
+                <input type="text" placeholder="" ng-model="registerData.email">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password" placeholder="" required>
             </label>
             <label class="item item-input">
                 <span class="input-label">Confirm Password</span>
-                <input type="text" placeholder="">
+                <input type="password" placeholder="" ng-model="registerData.password">
             </label>
-            <a ui-sref="menu.questionSet" id="welcome-button10" class="button button-positive  button-block">Enter</a>
+            <button class="button button-block button-positive" type="submit">Register</button>
         </form>
     </ion-content>
 </ion-view>
+
+

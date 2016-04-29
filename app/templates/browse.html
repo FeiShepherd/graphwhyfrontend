@@ -1,5 +1,10 @@
-<ion-view view-title="Browse">
-  <ion-content>
-    <h1>Soon</h1>
+<ion-view title="Question Set" id="page3">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div class="spacer" style="width: 300px; height: 5px;"></div>
+        <h1 id="questionSet-heading2" style="color:#000000;font-weight:lighter;">Tags</h1>
+        <div class="spacer" style="width: 300px; height: 19px;"></div>
+        <ion-list>
+            <ion-item ng-repeat="t in tags">#{{t.title}} has {{t.questions.length}} questions</ion-item>
+        </ion-list>
   </ion-content>
 </ion-view>
