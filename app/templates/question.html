@@ -1,17 +1,25 @@
-<ion-view title="Question Set" id="page3">
-    <ion-content overflow-scroll="true" padding="true" class="has-header" ng-show="!sorry">
+<ion-view title="Questionnaire" id="page3">
+    <ion-content padding="true" class="has-header" ng-show="!sorry">
+        <h4 id="questionnaire-heading10" style="color:#000000;font-weight:lighter;text-align:right;">0% Complete</h4>
         <div class="spacer" style="width: 300px; height: 5px;"></div>
-        <h1 id="questionSet-heading2" style="color:#000000;font-weight:lighter;">{{question.prompt}}</h1>
-        <h2>{{question.explain}}</h2>
+        <h2 id="questionnaire-heading2" style="color:#000000;font-weight:lighter;text-align:center;">{{question.prompt}}</h2>
+        <center><small id="questionnaire-heading2" style="color:#000000;font-weight:lighter;text-align:center;">{{question.explain}}</small></center>
         <div class="spacer" style="width: 300px; height: 19px;"></div>
         <ion-list>
             <ion-item ng-repeat="a in question.answers track by $index" ng-click="voteQuestion($index)" ng-click="reset()">{{a}}</ion-item>
         </ion-list>
-        <div class="spacer" style="width: 300px; height: 41px;"></div>
     </ion-content>
-    <ion-content overflow-scroll="true" padding="true" class="has-header" ng-show="sorry">
-        sorry you finished all the questions in this tag
+    <ion-content padding="true" class="has-header" ng-show="sorry">
+        <div class="spacer" style="width: 300px; height: 13px;"></div>
+        <h4 id="navigation-heading15" style="color:#000000;">Great Job</h4>
+        <h5 id="navigation-heading12" style="color:#000000;font-weight:300;">You were survey taker 120 we really apperciate your support.</h5>
+        <div class="spacer" style="width: 300px; height: 13px;"></div>
+        <h5 id="navigation-heading13" style="color:#000000;font-weight:300;">Have time for one more?</h5>
+        <h2 id="navigation-heading11" style="color:#000000;font-weight:lighter;text-align:center;">Select another tag</h2>
+        <div class="spacer" style="width: 300px; height: 21px;"></div>
+        <ion-list>
+            <ion-item menu-close href="{{'#/app/t/' + t.title}}" ng-repeat="t in tags" on-tap="reset()">#{{t.title}}</ion-item>
+        </ion-list>
     </ion-content>
 </ion-view>
-
 

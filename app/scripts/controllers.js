@@ -82,7 +82,6 @@ angular.module('starter.controllers', ['config'])
               disableBack: true
             });
             $state.go('app.browse');
-            location.reload();
           }
         })
       }
@@ -104,7 +103,7 @@ angular.module('starter.controllers', ['config'])
 
 .controller('createCtrl', function(env, $scope, $stateParams, $rootScope,$http) {
   $scope.questionData = {};
-  $scope.options = ['']
+  $scope.options = ['','']
   $scope.answers = []
   var TagsUsedToIdArray = function(){
     var tempArr = [];
