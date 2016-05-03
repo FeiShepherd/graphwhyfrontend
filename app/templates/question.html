@@ -1,12 +1,12 @@
 <ion-view title="Questionnaire" id="page3">
     <ion-content padding="true" class="has-header" ng-show="!sorry">
-        <h4 id="questionnaire-heading10" style="color:#000000;font-weight:lighter;text-align:right;">0% Complete</h4>
+        <h4 id="questionnaire-heading10" style="color:#000000;font-weight:lighter;text-align:right;">Sponsored by GraphWhy</h4>
         <div class="spacer" style="width: 300px; height: 5px;"></div>
         <h2 id="questionnaire-heading2" style="color:#000000;font-weight:lighter;text-align:center;">{{question.prompt}}</h2>
         <center><small id="questionnaire-heading2" style="color:#000000;font-weight:lighter;text-align:center;">{{question.explain}}</small></center>
         <div class="spacer" style="width: 300px; height: 19px;"></div>
         <ion-list>
-            <ion-item ng-repeat="a in question.answers track by $index" ng-click="voteQuestion($index)" ng-click="reset()">{{a}}</ion-item>
+            <ion-item ng-repeat="a in question.answers track by $index" ng-click="voteQuestion($index)" ng-click="reset()" ng-hide="!a">{{a}}</ion-item>
         </ion-list>
     </ion-content>
     <ion-content padding="true" class="has-header" ng-show="sorry">
@@ -18,7 +18,7 @@
         <h2 id="navigation-heading11" style="color:#000000;font-weight:lighter;text-align:center;">Select another tag</h2>
         <div class="spacer" style="width: 300px; height: 21px;"></div>
         <ion-list>
-            <ion-item menu-close href="{{'#/app/t/' + t.title}}" ng-repeat="t in tags" on-tap="reset()">#{{t.title}}</ion-item>
+            <ion-item style="white-space:initial" menu-close href="{{'#/app/t/' + t.title}}" ng-repeat="t in tags" on-tap="reset()" >#{{t.title}}</ion-item>
         </ion-list>
     </ion-content>
 </ion-view>

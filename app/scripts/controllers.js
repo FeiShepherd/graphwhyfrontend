@@ -150,6 +150,7 @@ angular.module('starter.controllers', ['config'])
       if(data.data == 'finished set'){
         $scope.sorry = true;
       }else{
+	console.log(data.data);
         $scope.question = data.data;
       }
     })
