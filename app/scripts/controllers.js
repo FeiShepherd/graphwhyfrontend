@@ -161,7 +161,7 @@ angular.module('starter.controllers', ['config'])
       })
     }
     $scope.createAnswer = function(){
-      $http.post(env.api+'/question/addvote/'+$scope.question._id,{option:$scope.customoption}).then(function(data){
+      $http.post(env.api+'/question/addvote/'+$scope.question._id,{option:$('#customoption').val()}).then(function(data){
         console.log(data);
         $scope.reset();
       })
