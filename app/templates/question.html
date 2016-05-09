@@ -8,6 +8,11 @@
         <ion-list>
             <ion-item ng-repeat="a in question.answers track by $index" ng-click="voteQuestion($index)" ng-click="reset()" ng-hide="!a">{{a}}</ion-item>
         </ion-list>
+          <label class="item item-input">
+              <span class="input-label">Add an answer</span>
+              <input type="text" placeholder="" ng-model="customoption">
+          </label>
+          <button id="createQuestionsDontNeed-button13" class="button button-positive  button-block" on-tap="createAnswer()">Create answer</button>
     </ion-content>
     <ion-content padding="true" class="has-header" ng-show="sorry">
         <div class="spacer" style="width: 300px; height: 13px;"></div>

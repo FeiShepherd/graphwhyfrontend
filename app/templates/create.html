@@ -10,7 +10,7 @@
                 <input type="text" placeholder="Title Description (optional)" ng-model="questionData.explain">
             </label>
             <ion-item class="item-divider">Answer Options</ion-item>
-
+            
             <label class="item item-input" ng-repeat="o in options track by $index">
                 <input type="text" placeholder="{{'Option '+($index+1)}}" ng-model="answers[$index]">
             </label>
