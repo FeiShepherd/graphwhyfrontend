@@ -8,15 +8,15 @@
         <ion-list>
             <ion-item ng-repeat="a in question.answers track by $index" ng-click="voteQuestion($index)" ng-click="reset()" ng-hide="!a">{{a}}</ion-item>
         </ion-list>
-        <h5>Add answer option</h5>
+        <h5 class='addOption'>Add an answer option</h5>
           <label class="item item-input">
-              <input type="text" placeholder="" ng-model="createVoteData.customoption">
+              <input type="text" placeholder="Your answer option here" ng-model="createVoteData.customoption">
           </label>
           <button id="createQuestionsDontNeed-button13" class="button button-positive  button-block" on-tap="createAnswer()">Create answer</button>
     </ion-content>
     <ion-content padding="true" class="has-header" ng-show="sorry">
         <div class="spacer" style="width: 300px; height: 13px;"></div>
-        <h4 id="navigation-heading15" style="color:#000000;">Great Job</h4>
+        <h5 id="navigation-heading15" style="color:#000000;">Great Job</h5>
         <h5 id="navigation-heading12" style="color:#000000;font-weight:300;">You were survey taker 120 we really apperciate your support.</h5>
         <div class="spacer" style="width: 300px; height: 13px;"></div>
         <h5 id="navigation-heading13" style="color:#000000;font-weight:300;">Have time for one more?</h5>
