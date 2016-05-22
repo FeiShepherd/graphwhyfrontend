@@ -6,7 +6,13 @@
         <center><small id="questionnaire-heading2" style="color:#000000;font-weight:lighter;text-align:center;">{{question.explain}}</small></center>
         <div class="spacer" style="width: 300px; height: 19px;"></div>
         <ion-list>
-            <ion-item ng-repeat="a in question.answers track by $index" ng-click="voteQuestion($index)" ng-click="reset()" ng-hide="!a">{{a.title}}</ion-item>
+            <ion-item 
+                ng-repeat="a in question.answers track by $index"
+                ng-click="voteQuestion($index)" 
+                ng-click="reset()" 
+                ng-hide="!a.title">
+                {{a.title}}
+            </ion-item>
         </ion-list>
         <h5 class='addOption'>Add an answer option</h5>
           <label class="item item-input">
