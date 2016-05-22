@@ -32,13 +32,29 @@
     <ion-content padding="true" class="has-header" ng-show="sorry">
         <div class="spacer" style="width: 300px; height: 13px;"></div>
         <h5 id="navigation-heading15" style="color:#000000;">Great Job</h5>
-        <h5 id="navigation-heading12" style="color:#000000;font-weight:300;">You were survey taker 120 we really apperciate your support.</h5>
         <div class="spacer" style="width: 300px; height: 13px;"></div>
+        <h5 id="navigation-heading12" style="color:#000000;font-weight:300;">You were survey taker 120 we really apperciate your support.</h5>
+        <div class="spacer" style="width: 300px; height: 5px;"></div>
         <h5 id="navigation-heading13" style="color:#000000;font-weight:300;">Have time for one more?</h5>
         <h2 id="navigation-heading11" style="color:#000000;font-weight:lighter;text-align:center;">Select another tag</h2>
         <div class="spacer" style="width: 300px; height: 21px;"></div>
         <ion-list>
-            <ion-item style="white-space:initial" menu-close href="{{'#/app/t/' + t.title}}" ng-repeat="t in tags" on-tap="reset()" >#{{t.title}}</ion-item>
+            <ion-item style="white-space:initial" 
+                menu-close href="{{'#/app/t/' + t.title}}"
+                ng-repeat="t in tags" 
+                on-tap="reset()" 
+                ng-show="t.questions.length > 0">
+              <span class='tag-index'>{{t.questions.length}}</span>
+              <span class=''>{{t.title}}</span>
+            </ion-item>
         </ion-list>
     </ion-content>
 </ion-view>
+
+
+<!--
+
+<div ng-class="{'dog': false}">
+
+</div>
+-->
