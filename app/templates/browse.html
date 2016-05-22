@@ -4,7 +4,14 @@
         <h1 id="questionSet-heading2" style="color:#000000;font-weight:lighter;">Current Tags</h1>
         <div class="spacer" style="width: 300px; height: 19px;"></div>
         <ion-list>
-            <ion-item menu-close href="{{'#/app/t/' + t.title}}" ng-repeat="t in tags" on-tap="reset()">#{{t.title}}</ion-item>
+            <ion-item style="white-space:initial" 
+                menu-close href="{{'#/app/t/' + t.title}}"
+                ng-repeat="t in tags" 
+                on-tap="reset()" 
+                ng-show="t.questions.length > 0">
+                <span class='tag-index'>{{t.questions.length}}</span>
+                <span class=''>{{t.title}}</span>
+            </ion-item>
         </ion-list>
   </ion-content>
 </ion-view>

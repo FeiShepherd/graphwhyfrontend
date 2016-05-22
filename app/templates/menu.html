@@ -20,12 +20,21 @@
             <ion-item class="item-divider">Tags</ion-item>
             </ion-list>
             <ion-list>
-                <ion-item menu-close href="{{'#/app/t/' + t.title}}" ng-repeat="t in tags" on-tap="reset()">#{{t.title}}</ion-item>
+              <ion-item style="white-space:initial" 
+                  menu-close href="{{'#/app/t/' + t.title}}"
+                  ng-repeat="t in tags" 
+                  on-tap="reset()" 
+                  ng-show="t.questions.length > 0">
+                  <span class='tag-index'>{{t.questions.length}}</span>
+                  <span class=''>{{t.title}}</span>
+              </ion-item>
             </ion-list>
             <ion-item class="item-divider">Profile</ion-item>
             </ion-list>
             <ion-list>
+                <ion-item menu-close href="#/app/myquestions">Database</ion-item>
                 <ion-item menu-close href="#/app/create">Create Question</ion-item>
+                <ion-item menu-close href="#/app/myquestions">Database</ion-item>
                 <ion-item menu-close href="#/app/myquestions">Question History</ion-item>
             </ion-list>
             <div class="spacer" style="width: 268px; height: 141px;"></div>

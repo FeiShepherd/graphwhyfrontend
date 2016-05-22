@@ -2,3 +2,18 @@
 .addOption{
 	padding:20px 15px 10px;
 }
+.pull-left{
+	display: block;
+	float:left !important;
+}
+.pull-right{
+	display: block;
+	float:right !important;
+}
+.tag-index{
+	background-color: #777;
+	width: 50px;
+	height: 100%;
+	border-radius: 7000px;
+	color:#fff;
+}
