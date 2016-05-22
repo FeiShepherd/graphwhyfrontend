@@ -144,6 +144,8 @@ angular.module('starter.controllers', ['config'])
 
 .controller('questionCtrl', function(env, $scope, $stateParams, $http, $state, $ionicHistory) {
   $scope.reset = function(){
+    $scope.data = {};
+    $scope.data.sliderModel = 5;
     $scope.createVoteData = {};
     $scope.sorry = false;
     $scope.question = {};
@@ -159,6 +161,9 @@ angular.module('starter.controllers', ['config'])
       $http.get(env.api+'/question/vote/'+$scope.question._id+'/'+i).then(function(data){
         $scope.reset();
       })
+    }
+    $scope.sendSlider = function(){
+      $scope.voteQuestion($scope.data.sliderModel);
     }
     $scope.createAnswer = function(){
       $http.post(env.api+'/question/addvote/'+$scope.question._id,{option:$scope.createVoteData.customoption
