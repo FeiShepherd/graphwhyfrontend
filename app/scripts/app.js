@@ -4,6 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
+var pathway;
 angular.module('starter', ['ionic', 'starter.controllers'])
 
 .run(function($ionicPlatform) {
@@ -22,16 +23,20 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
+.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
+
+  pathway = window.location.pathname.substr(1)
+
+
+ 
+  $stateProvider
     .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-
   .state('app.welcome', {
     url: '/welcome',
     views: {
@@ -41,15 +46,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
-    .state('app.t', {
-      url: '/t/:tag',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/question.html',
-          controller: 'questionCtrl'
-        }
-      }
-    })
     .state('app.browse', {
       url: '/browse',
       views: {
@@ -92,7 +88,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         templateUrl: 'templates/aboutus.html'
       }
     }
-  });
+  })
+    .state('app.t', {
+      url: '/t/:tag',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/question.html',
+          controller: 'questionCtrl'
+        }
+      }
+    })
+    $locationProvider.html5Mode(true);
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/welcome');
 });

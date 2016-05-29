@@ -2,7 +2,9 @@
   "name": "MyIonicProject",
   "version": "0.0.0",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.13.4"
+  },
   "devDependencies": {
     "grunt": "~0.4.5",
     "glob": "~4.3.5",
@@ -47,11 +49,12 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "start": "node webserver.js"
   },
   "cordovaPlugins": [
-		"org.apache.cordova.device",
-		"org.apache.cordova.console",
-		"com.ionic.keyboard"
+    "org.apache.cordova.device",
+    "org.apache.cordova.console",
+    "com.ionic.keyboard"
   ]
 }

@@ -4,6 +4,7 @@ angular.module('starter.controllers', ['config'])
     //rest of route code
 })
 .controller('AppCtrl', function(env, $scope, $http, $state, $ionicHistory, $rootScope) {
+
   $scope.loggedin = false;
   $scope.loginData = {};
   $scope.registerData = {};
@@ -47,17 +48,6 @@ angular.module('starter.controllers', ['config'])
       $state.go('app.welcome');
     })
   }
-  $scope.doLogin = function(){
-    $http.post(env.api+'/user/login',{email:$scope.loginData.email,password:$scope.loginData.password}).then(function(resp){
-      $scope.loggedin = resp.data.data.login;
-      if($scope.loggedin){
-        $ionicHistory.nextViewOptions({
-          disableBack: true
-        });
-        $state.go('app.browse');
-      }
-    })
-  }
   $scope.checkLogin = function(){
     $http.get(env.api+'/user/check').then(function(data){
       console.log(data)
@@ -70,28 +60,51 @@ angular.module('starter.controllers', ['config'])
       }
     })
   }
-  $scope.doRegister = function(){
+  $scope.checkLogin();
+})
+
+.controller('welcomeCtrl', function($scope,$stateParams,$http,env,$ionicHistory,$state) {
+    $scope.doLogin = function(){
+    $http.post(env.api+'/user/login',{email:$scope.loginData.email,password:$scope.loginData.password}).then(function(resp){
+      $scope.loggedin = resp.data.data.login;
+      console.log($stateParams)
+      if($scope.loggedin){
+        $ionicHistory.nextViewOptions({
+          disableBack: true
+        });
+        if(pathway){
+          $state.go('app.t',{ tag: pathway });
+        }else{
+          $state.go('app.browse')
+        }
+      }
+    })
+  }
+    $scope.doRegister = function(){
     $http.post(env.api+'/user',{email:$scope.registerData.email,password:$scope.registerData.password}).then(function(resp){
       if(resp.data=='already used') {
+        alert('aready uesd')
         return;
       }else{
         $http.post(env.api+'/user/login',{email:$scope.registerData.email,password:$scope.registerData.password}).then(function(resp){
+      
           $scope.loggedin = resp.data.data.login;
           if($scope.loggedin){
             $ionicHistory.nextViewOptions({
               disableBack: true
             });
-            $state.go('app.browse');
+            if(pathway){
+              $state.go('app.t',{ tag: pathway });
+            }else{
+              $state.go('app.browse')
+            }
           }
         })
       }
     })
   }
-  $scope.checkLogin();
 })
 
-.controller('welcomeCtrl', function( $scope) {
-})
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
@@ -101,7 +114,7 @@ angular.module('starter.controllers', ['config'])
 
 })
 
-.controller('createCtrl', function(env, $scope, $stateParams, $rootScope,$http) {
+.controller('createCtrl', function(env, $scope, $stateParams, $rootScope, $http) {
   $scope.questionData = {};
   $scope.options = ['','']
   $scope.answers = []
