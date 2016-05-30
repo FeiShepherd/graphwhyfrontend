@@ -8,7 +8,7 @@ angular.module('starter.controllers', ['config'])
   $scope.loggedin = false;
   $scope.loginData = {};
   $scope.registerData = {};
-  $scope.welcome = 'login';
+  $scope.welcome = 'register';
   $scope.tags = [];
   $rootScope.myTags = [];
 
