@@ -22,3 +22,8 @@
 	color:#fff;
 	text-align: right;
 }
+
+/* ERROR MESSAGE HANDLING */
+.errorMessage{
+	color:red;
+}

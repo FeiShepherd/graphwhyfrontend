@@ -7,7 +7,6 @@ angular.module('starter.controllers', ['config'])
 
   $scope.loggedin = false;
   $scope.loginData = {};
-  $scope.registerData = {};
   $scope.welcome = 'register';
   $scope.tags = [];
   $rootScope.myTags = [];
@@ -64,7 +63,21 @@ angular.module('starter.controllers', ['config'])
 })
 
 .controller('welcomeCtrl', function($scope,$stateParams,$http,env,$ionicHistory,$state) {
-    $scope.doLogin = function(){
+    //Error handling
+    /*Very broken
+    var email = $scope.registerData.email;
+    $scope.emailError = false;
+    $scope.regValidation = function () {
+        console.log(email);
+        if(email == null){
+        $scope.emailError = true;
+        }
+    }
+    */
+   $scope.registerData = {};
+   $scope.emailError = false;
+
+  $scope.doLogin = function(){
     $http.post(env.api+'/user/login',{email:$scope.loginData.email,password:$scope.loginData.password}).then(function(resp){
       $scope.loggedin = resp.data.data.login;
       console.log($stateParams)
@@ -80,28 +93,36 @@ angular.module('starter.controllers', ['config'])
       }
     })
   }
-    $scope.doRegister = function(){
-    $http.post(env.api+'/user',{email:$scope.registerData.email,password:$scope.registerData.password}).then(function(resp){
-      if(resp.data=='already used') {
-        alert('aready uesd')
-        return;
-      }else{
-        $http.post(env.api+'/user/login',{email:$scope.registerData.email,password:$scope.registerData.password}).then(function(resp){
-      
-          $scope.loggedin = resp.data.data.login;
-          if($scope.loggedin){
-            $ionicHistory.nextViewOptions({
-              disableBack: true
-            });
-            if(pathway){
-              $state.go('app.t',{ tag: pathway });
-            }else{
-              $state.go('app.browse')
+  $scope.doRegister = function(){
+      /*
+      console.log($scope.registerData.$valid.email);  //This doesnt work
+      console.log($scope.registerData.$valid.email);  //This doesnt work
+      */
+    if($scope.registerData.email.indexOf('@') !== -1){
+      $http.post(env.api+'/user',{email:$scope.registerData.email,password:$scope.registerData.password}).then(function(resp){
+        if(resp.data == 'already used') {
+          alert('already used');
+          return;
+        }else{
+          $http.post(env.api+'/user/login',{email:$scope.registerData.email,password:$scope.registerData.password}).then(function(resp){
+        
+            $scope.loggedin = resp.data.data.login;
+            if($scope.loggedin){
+              $ionicHistory.nextViewOptions({
+                disableBack: true
+              });
+              if(pathway){
+                $state.go('app.t',{ tag: pathway });
+              }else{
+                $state.go('app.browse')
+              }
             }
-          }
-        })
-      }
-    })
+          })
+        }
+      })
+    }else{
+      $scope.emailError = true;
+    }
   }
 })
 

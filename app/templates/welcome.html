@@ -12,29 +12,32 @@
             <button id="welcome-button7" class="button button-positive  button-block" ng-click="switchWelcome('register')" ng-disabled="welcome=='register'">Sign Up</button>
             <button id="welcome-button8" class="button button-positive  button-block" ng-click="switchWelcome('login')" ng-disabled="welcome=='login'">Log In</button>
         </div>
+        <!-- LOGIN FORM -->
         <form class="list" ng-show="welcome=='login'" ng-submit="doLogin()">
-            <label class="item item-input">
+            <label class="item item-input item-floating-label">
                 <span class="input-label">Email</span>
-                <input type="text" placeholder="Email here" ng-model="loginData.email">
+                <input type="email" placeholder="Email" ng-model="loginData.email">
             </label>
             <label class="item item-input">
-                <span class="input-label">Password</span>
-                <input type="password" placeholder="Password here" ng-model="loginData.password">
+                <span class="input-label item-floating-label">Password</span>
+                <input type="password" placeholder="Password" ng-model="loginData.password">
             </label>
             <button class="button button-block button-positive" type="submit">Login</button>
         </form>
+        <!-- REGISTER FORM -->
         <form class="list" ng-show="welcome=='register'" ng-submit="doRegister()">
-            <label class="item item-input">
+            <label class="item item-input item-floating-label">
                 <span class="input-label">Email</span>
-                <input type="text" placeholder="Email here" ng-model="registerData.email">
+                <span ng-show="emailError" class='errorMessage'>You have entered an incorrect email address.</span>
+                <input type="text" placeholder="Email" ng-model="registerData.email">
             </label>
-            <label class="item item-input">
+            <label class="item item-input item-floating-label">
                 <span class="input-label">Password</span>
-                <input type="password" placeholder="Password here" required>
+                <input type="password" placeholder="Password" required>
             </label>
-            <label class="item item-input">
+            <label class="item item-input item-floating-label">
                 <span class="input-label">Confirm Password</span>
-                <input type="password" placeholder="Confirm password here" ng-model="registerData.password">
+                <input type="password" placeholder="Confirm Password" ng-model="registerData.password">
             </label>
             <button class="button button-block button-positive" type="submit">Register</button>
         </form>
