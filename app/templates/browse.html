@@ -5,10 +5,10 @@
         <div class="spacer" style="width: 300px; height: 19px;"></div>
         <ion-list>
             <ion-item style="white-space:initial" 
-                menu-close href="{{'#/app/t/' + t.title}}"
+                menu-close href="{{'/app/t/' + t.title}}"
                 ng-repeat="t in tags" 
                 on-tap="reset()" 
-                ng-show="t.questions.length > 0">
+                ng-show="t.questions.length > 0"> 
                 <span class='tag-index'>{{t.questions.length}}</span>
                 <span class=''>{{t.title}}</span>
             </ion-item>

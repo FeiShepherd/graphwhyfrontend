@@ -41,7 +41,7 @@
         <div class="spacer" style="width: 300px; height: 21px;"></div>
         <ion-list>
             <ion-item style="white-space:initial" 
-                menu-close href="{{'#/app/t/' + t.title}}"
+                menu-close href="{{'app/t/' + t.title}}"
                 ng-repeat="t in tags" 
                 on-tap="reset()" 
                 ng-show="t.questions.length > 0">
