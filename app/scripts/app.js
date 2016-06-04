@@ -22,14 +22,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
 })
-
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
+  if(typeof pathway !== 'undefined'){
+    if(pathway.substr(1).indexOf('/') == -1){
+      pathway = window.location.pathname.substr(1)
+    }
+  }
 
-  pathway = window.location.pathname.substr(1)
-
-
- 
   $stateProvider
     .state('app', {
     url: '/app',

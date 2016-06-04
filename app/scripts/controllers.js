@@ -11,6 +11,22 @@ angular.module('starter.controllers', ['config'])
   $scope.tags = [];
   $rootScope.myTags = [];
 
+  $scope.$on('logged', function(event, data) { 
+    $scope.loggedin = data;
+    if(data){
+      $ionicHistory.nextViewOptions({
+        disableBack: true
+      });
+      if(pathway){
+        $state.go('app.t',{ tag: pathway });
+      }else{
+        $state.go('app.browse')
+      }
+    }else{
+
+    }
+  });
+
   $scope.addTag = function(t){
     for(var i = 0; i < $scope.myTags.length; i++){
       if(t == $scope.myTags[i]) return;
@@ -31,6 +47,9 @@ angular.module('starter.controllers', ['config'])
       var tags = data.data.data;
       for(t in tags){
         $scope.tags.push(tags[t])
+      }
+      for(var i = 0; i < $scope.tags.length; i++){
+        $scope.tags[i].title = $scope.tags[i].title.split(" ").join("_")
       }
     });
   }
@@ -56,13 +75,15 @@ angular.module('starter.controllers', ['config'])
       });
       if(!$scope.loggedin){
         $state.go('app.welcome');
+      }else{
+
       }
     })
   }
   $scope.checkLogin();
 })
 
-.controller('welcomeCtrl', function($scope,$stateParams,$http,env,$ionicHistory,$state) {
+.controller('welcomeCtrl', function($rootScope,$scope,$stateParams,$http,env,$ionicHistory,$state) {
     //Error handling
     /*Very broken
     var email = $scope.registerData.email;
@@ -78,45 +99,23 @@ angular.module('starter.controllers', ['config'])
    $scope.emailError = false;
 
   $scope.doLogin = function(){
-    $http.post(env.api+'/user/login',{email:$scope.loginData.email,password:$scope.loginData.password}).then(function(resp){
-      $scope.loggedin = resp.data.data.login;
-      console.log($stateParams)
-      if($scope.loggedin){
-        $ionicHistory.nextViewOptions({
-          disableBack: true
-        });
-        if(pathway){
-          $state.go('app.t',{ tag: pathway });
-        }else{
-          $state.go('app.browse')
-        }
-      }
-    })
+    $http.post(env.api+'/user/login',
+      {email:$scope.loginData.email,password:$scope.loginData.password}).
+      then(function(resp){
+        $rootScope.$broadcast('logged', resp.data.data.login);
+      })
   }
   $scope.doRegister = function(){
-      /*
-      console.log($scope.registerData.$valid.email);  //This doesnt work
-      console.log($scope.registerData.$valid.email);  //This doesnt work
-      */
     if($scope.registerData.email.indexOf('@') !== -1){
       $http.post(env.api+'/user',{email:$scope.registerData.email,password:$scope.registerData.password}).then(function(resp){
         if(resp.data == 'already used') {
           alert('already used');
           return;
         }else{
-          $http.post(env.api+'/user/login',{email:$scope.registerData.email,password:$scope.registerData.password}).then(function(resp){
-        
-            $scope.loggedin = resp.data.data.login;
-            if($scope.loggedin){
-              $ionicHistory.nextViewOptions({
-                disableBack: true
-              });
-              if(pathway){
-                $state.go('app.t',{ tag: pathway });
-              }else{
-                $state.go('app.browse')
-              }
-            }
+          $http.post(env.api+'/user/login',
+          {email:$scope.registerData.email,password:$scope.registerData.password}).
+          then(function(resp){
+            $rootScope.$broadcast('logged', resp.data.data.login);
           })
         }
       })
@@ -187,7 +186,6 @@ angular.module('starter.controllers', ['config'])
       if(data.data == 'finished set'){
         $scope.sorry = true;
       }else{
-	console.log(data.data);
         $scope.question = data.data;
       }
     })
