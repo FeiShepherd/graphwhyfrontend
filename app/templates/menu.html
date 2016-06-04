@@ -1,6 +1,7 @@
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
     <ion-nav-bar class="bar-stable" ng-hide="!loggedin">
+
       <ion-nav-back-button>
       </ion-nav-back-button>
 
@@ -22,7 +23,7 @@
             <ion-list>
               <ion-item style="white-space:initial" 
                   menu-close href="{{'app/t/' + t.title}}"
-                  ng-repeat="t in tags | orderby:'questions.length'" 
+                  ng-repeat="t in tags" 
                   on-tap="reset()" 
                   ng-show="t.questions.length > 0">
                   <span class='tag-index'>{{t.questions.length}}</span>

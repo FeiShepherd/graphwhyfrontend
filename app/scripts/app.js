@@ -32,20 +32,20 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
   $stateProvider
     .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
-  })
-  .state('app.welcome', {
-    url: '/welcome',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/welcome.html',
-        controller: 'welcomeCtrl'
+      url: '/app',
+      abstract: true,
+      templateUrl: 'templates/menu.html',
+      controller: 'AppCtrl'
+    })
+    .state('app.welcome', {
+      url: '/welcome',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/welcome.html',
+          controller: 'welcomeCtrl'
+        }
       }
-    }
-  })
+    })
     .state('app.browse', {
       url: '/browse',
       views: {
@@ -81,14 +81,30 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-  .state('app.aboutus', {
-    url: '/aboutus',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/aboutus.html'
+    .state('app.aboutus', {
+      url: '/aboutus',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/aboutus.html'
+        }
       }
-    }
-  })
+    })
+    .state('app.toupp', {
+      url: '/toupp',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/toupp.html'
+        }
+      }
+    })
+    .state('app.dmca', {
+      url: '/dmca',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/dmca.html'
+        }
+      }
+    })
     .state('app.t', {
       url: '/t/:tag',
       views: {

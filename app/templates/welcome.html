@@ -8,6 +8,9 @@
             <p>building statistical understanding</p>
         </div>
         <div class="spacer" style="width: 300px; height: 40px;"></div>
+        <!-- TAB BAR -->
+        <a class='toupp pull-left' href='/app/toupp'> Terms of Use & Privacy Policy </a>
+        <a class='toupp pull-right' href='/app/dmca'> DMCA </a>
         <div class="button-bar">
             <button id="welcome-button7" class="button button-positive button-block" ng-click="switchWelcome('register')" ng-disabled="welcome=='register'">Sign Up</button>
             <button id="welcome-button8" class="button button-positive button-block" ng-click="switchWelcome('login')" ng-disabled="welcome=='login'">Log In</button>
@@ -25,7 +28,7 @@
             <button class="button button-block button-positive" type="submit">Login</button>
         </form>
         <!-- REGISTER FORM -->
-        <form class="list" ng-show="welcome=='register'" ng-submit="doRegister()">
+        <form class="list" ng-show="welcome=='register'" ng-submit="doRegister()" >
             <label class="item item-input item-floating-label">
                 <span class="input-label">Email</span>
                 <span ng-show="emailError" class='errorMessage' ng-cloak>You have entered an incorrect email address.</span>

@@ -22,7 +22,12 @@
 	color:#fff;
 	text-align: right;
 }
-
+.toupp{
+	 color:#666;
+}
+.toupp:click{
+	color:#666;
+}
 /* ERROR MESSAGE HANDLING */
 .errorMessage{
 	color:red;
