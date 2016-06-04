@@ -9,11 +9,11 @@
         </div>
         <div class="spacer" style="width: 300px; height: 40px;"></div>
         <div class="button-bar">
-            <button id="welcome-button7" class="button button-positive  button-block" ng-click="switchWelcome('register')" ng-disabled="welcome=='register'">Sign Up</button>
-            <button id="welcome-button8" class="button button-positive  button-block" ng-click="switchWelcome('login')" ng-disabled="welcome=='login'">Log In</button>
+            <button id="welcome-button7" class="button button-positive button-block" ng-click="switchWelcome('register')" ng-disabled="welcome=='register'">Sign Up</button>
+            <button id="welcome-button8" class="button button-positive button-block" ng-click="switchWelcome('login')" ng-disabled="welcome=='login'">Log In</button>
         </div>
         <!-- LOGIN FORM -->
-        <form class="list" ng-show="welcome=='login'" ng-submit="doLogin()">
+        <form class="list" ng-show="welcome=='login'" ng-submit="doLogin()" ng-cloak>
             <label class="item item-input item-floating-label">
                 <span class="input-label">Email</span>
                 <input type="email" placeholder="Email" ng-model="loginData.email">
@@ -28,7 +28,7 @@
         <form class="list" ng-show="welcome=='register'" ng-submit="doRegister()">
             <label class="item item-input item-floating-label">
                 <span class="input-label">Email</span>
-                <span ng-show="emailError" class='errorMessage'>You have entered an incorrect email address.</span>
+                <span ng-show="emailError" class='errorMessage' ng-cloak>You have entered an incorrect email address.</span>
                 <input type="text" placeholder="Email" ng-model="registerData.email">
             </label>
             <label class="item item-input item-floating-label">
@@ -43,4 +43,3 @@
         </form>
     </ion-content>
 </ion-view>
-

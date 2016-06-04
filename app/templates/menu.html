@@ -22,7 +22,7 @@
             <ion-list>
               <ion-item style="white-space:initial" 
                   menu-close href="{{'app/t/' + t.title}}"
-                  ng-repeat="t in tags" 
+                  ng-repeat="t in tags | orderby:'questions.length'" 
                   on-tap="reset()" 
                   ng-show="t.questions.length > 0">
                   <span class='tag-index'>{{t.questions.length}}</span>
