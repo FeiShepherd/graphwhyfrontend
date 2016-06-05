@@ -12,9 +12,9 @@ Git -> https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</br>
 Or: ```sudo apt-get install git-all```</br>
 
 Node ->  https://nodejs.org/en/download/package-manager/</br>
-Or: ```curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-          sudo apt-get install -y nodejs```</br>
-          
+Or: ```curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -```
+    </br>```sudo apt-get install -y nodejs```
+
 Bower -> http://bower.io/ </br>
 Or:  ```sudo npm install -g bower```</br>
 
@@ -29,3 +29,8 @@ sudo bower install --allow-root
 sudo npm install
 sudo grunt build
 ```
+### Use
+Navigate to the graphwhyfrontend directory then:</br>
+```node webserver.js```</br>
+Next navigate your browser to ```localhost:8100```. </br>
+Finally here is our front end.
