@@ -1,39 +1,39 @@
 <ion-view view-title="Create a Question">
     <ion-content padding="true" class="has-header">
-        <div class="spacer" style="width: 300px; height: 22px;"></div>
-        <form class="list">
-            <ion-item class="item-divider">Question Title</ion-item>
-            <label class="item item-input" name="QuestionTitle">
-                <input type="text" placeholder="Question Title" ng-model="questionData.prompt">
-            </label>
-            <label class="item item-input" name="TitleDescription">
-                <input type="text" placeholder="Title Description (optional)" ng-model="questionData.explain">
-            </label>
-            <ion-item class="item-divider">Answer Options</ion-item>
-            
-            <label class="item item-input" ng-repeat="o in options track by $index">
-                <input type="text" placeholder="{{'Option '+($index+1)}}" ng-model="answers[$index]">
-            </label>
+        <div class='desktopProtector'>
+            <div class="spacer" style="width: 300px; height: 22px;"></div>
+            <form class="list">
+                <ion-item class="item-divider">Question Title</ion-item>
+                <label class="item item-input" name="QuestionTitle">
+                    <input type="text" placeholder="Question Title" ng-model="questionData.prompt">
+                </label>
+                <label class="item item-input" name="TitleDescription">
+                    <input type="text" placeholder="Title Description (optional)" ng-model="questionData.explain">
+                </label>
+                <ion-item class="item-divider">Answer Options</ion-item>
+                
+                <label class="item item-input" ng-repeat="o in options track by $index">
+                    <input type="text" placeholder="{{'Option '+($index+1)}}" ng-model="answers[$index]">
+                </label>
 
-            <button id="createQuestionsDontNeed-button11" style="border-radius:0px 0px 0px 0px;" class="button button-calm button-small button-block icon ion-android-add" on-tap="addOption()">Add Option</button>
+                <button id="createQuestionsDontNeed-button11" style="border-radius:0px 0px 0px 0px;" class="button button-calm button-small button-block icon ion-android-add" on-tap="addOption()">Add Option</button>
 
-            <label class="item item-input">
-                <span class="input-label">Tags</span>
-                <button class="button button-small button-stable" ng-repeat="m in myTags track by $index" on-tap="removeTag(m)">{{m.title}}</button><input type="text" placeholder="" disabled>
-            </label>
-            <label class="item item-input">
-                <span class="input-label">Search for tags</span>
-                <input type="text" placeholder="" ng-model="search">
-            </label>
-            <button class="button button-small button-stable" ng-repeat="t in tags | filter:search track by $index" ng-click="addTag(t)">
-              {{t.title}}
-            </button>
+                <label class="item item-input">
+                    <span class="input-label">Tags</span>
+                    <button class="button button-small button-stable" ng-repeat="m in myTags track by $index" on-tap="removeTag(m)">{{m.title}}</button><input type="text" placeholder="" disabled>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Search for tags</span>
+                    <input type="text" placeholder="" ng-model="search">
+                </label>
+                <button class="button button-small button-stable" ng-repeat="t in tags | filter:search track by $index" ng-click="addTag(t)">
+                  {{t.title}}
+                </button>
 
 
-            <button id="createQuestionsDontNeed-button13" class="button button-positive  button-block" on-tap="createQuestion()">Add New Question</button>
-            <div class="spacer" style="width: 300px; height: 63px;"></div>
-        </form>
+                <button id="createQuestionsDontNeed-button13" class="button button-positive  button-block" on-tap="createQuestion()">Add New Question</button>
+                <div class="spacer" style="width: 300px; height: 63px;"></div>
+            </form>
+        </div>
     </ion-content>
-
-
 </ion-view>

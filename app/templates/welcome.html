@@ -1,5 +1,6 @@
 <ion-view view-title="Welcome">
     <ion-content padding="true" class="has-header">
+      <div class='desktopProtector'>
         <div>
             <img src="images/logo.png" width="50%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
         </div>
@@ -8,30 +9,25 @@
             <p>building statistical understanding</p>
         </div>
         <div class="spacer" style="width: 300px; height: 40px;"></div>
-        <!-- TAB BAR -->
+        <!-- SOCIAL MEDIA LOGIN
         <a class='toupp pull-left' href='/app/toupp'> Terms of Use & Privacy Policy </a>
         <a class='toupp pull-right' href='/app/dmca'> DMCA </a>
-        <div class="button-bar">
-            <button id="welcome-button7" class="button button-positive button-block" ng-click="switchWelcome('register')" ng-disabled="welcome=='register'">Sign Up</button>
-            <button id="welcome-button8" class="button button-positive button-block" ng-click="switchWelcome('login')" ng-disabled="welcome=='login'">Log In</button>
+        <div id="welcome-button-bar5" class=" button-bar ">
+            <button id="welcome-button15" class=" button button-positive  button-block">sign in with &nbsp; <i class="ion-social-facebook"></i> </button>
+            <button id="welcome-button16" class=" button button-assertive disable button-block">sign in with &nbsp; <i class="ion-social-googleplus"></i></button>
         </div>
-        <!-- LOGIN FORM -->
-        <form class="list" ng-show="welcome=='login'" ng-submit="doLogin()" ng-cloak>
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Email</span>
-                <input type="email" placeholder="Email" ng-model="loginData.email">
-            </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Password</span>
-                <input type="password" placeholder="Password" ng-model="loginData.password">
-            </label>
-            <button class="button button-block button-positive" type="submit">Login</button>
-        </form>
+        <h5 id="welcome-heading14" style="color:#7A7A7A; font-weight:300;text-align:center;" class=" ">or</h5>
+        <!-- SOCIAL MEDIA END -->
+        <!-- MANUAL LOGIN -->
+        <div class="button-bar">
+            <button id="welcome-button8" class="button button-positive button-block" ng-click="switchWelcome('login')" ng-disabled="welcome=='login'">Log In</button>
+            <button id="welcome-button7" class="button button-positive button-block" ng-click="switchWelcome('register')" ng-disabled="welcome=='register'">Sign Up</button>
+        </div>
         <!-- REGISTER FORM -->
         <form class="list" ng-show="welcome=='register'" ng-submit="doRegister()" >
             <label class="item item-input item-floating-label">
                 <span class="input-label">Email</span>
-                <span ng-show="emailError" class='errorMessage' ng-cloak>You have entered an incorrect email address.</span>
+                <span ng-show="emailError" class='errorMessage ng-cloak' ng-cloak>You have entered an incorrect email address.</span>
                 <input type="text" placeholder="Email" ng-model="registerData.email">
             </label>
             <label class="item item-input item-floating-label">
@@ -44,5 +40,18 @@
             </label>
             <button class="button button-block button-positive" type="submit">Register</button>
         </form>
+        <!-- LOGIN FORM -->
+        <form class="list ng-cloak"  ng-cloak ng-show="welcome=='login'" ng-submit="doLogin()" >
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Email</span>
+                <input type="email" placeholder="Email" ng-model="loginData.email">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Password</span>
+                <input type="password" placeholder="Password" ng-model="loginData.password">
+            </label>
+            <button class="button button-block button-positive" type="submit">Login</button>
+        </form>
+      </div>
     </ion-content>
 </ion-view>

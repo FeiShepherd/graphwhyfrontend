@@ -1,54 +1,56 @@
 <ion-view title="Questionnaire" id="page3">
     <ion-content padding="true" class="has-header" ng-show="!sorry">
-        <h4 id="questionnaire-heading10" style="color:#000000;font-weight:lighter;text-align:right;">Sponsored by GraphWhy</h4>
-        <div class="spacer" style="width: 300px; height: 5px;"></div>
-        <h2 id="questionnaire-heading2" style="color:#000000;font-weight:lighter;text-align:center;">{{question.prompt}}</h2>
-        <center><small id="questionnaire-heading2" style="color:#000000;font-weight:lighter;text-align:center;">{{question.explain}}</small></center>
-        <div class="spacer" style="width: 300px; height: 19px;"></div>
-        <div ng-show="question.type == 'multiplechoice'">
-          <ion-list>
-              <ion-item 
-                ng-repeat="a in question.answers track by $index"
-                ng-click="voteQuestion($index)" 
-                ng-click="reset()" 
-                ng-hide="!a.title">{{a.title}}</ion-item>
-          </ion-list>
-          <h5 class='addOption'>Add an answer option</h5>
-            <label class="item item-input">
-                <input type="text" placeholder="Your answer option here" ng-model="createVoteData.customoption">
-            </label>
-            <button id="createQuestionsDontNeed-button13" class="button button-positive  button-block" on-tap="createAnswer()">Create answer</button>
+        <div class='desktopProtector'>
+            <h3 id="questionnaire-heading10" style="color:#000000;font-weight:lighter;text-align:right;">Sponsored by GraphWhy</h3>
+            <div class="spacer" style="width: 300px; height: 5px;"></div>
+            <h2 id="questionnaire-heading2" style="color:#000000;font-weight:lighter;text-align:center;">{{question.prompt}}</h2>
+            <center><small id="questionnaire-heading2" style="color:#000000;font-weight:lighter;text-align:center;">{{question.explain}}</small></center>
+            <div class="spacer" style="width: 300px; height: 19px;"></div>
+            <div ng-show="question.type == 'multiplechoice'">
+              <ion-list>
+                  <ion-item 
+                    ng-repeat="a in question.answers track by $index"
+                    ng-click="voteQuestion($index)" 
+                    ng-click="reset()" 
+                    ng-hide="!a.title">{{a.title}}</ion-item>
+              </ion-list>
+              <h5 class='addOption'>Add an answer option</h5>
+                <label class="item item-input">
+                    <input type="text" placeholder="Your answer option here" ng-model="createVoteData.customoption">
+                </label>
+                <button id="createQuestionsDontNeed-button13" class="button button-positive  button-block" on-tap="createAnswer()">Create answer</button>
+            </div>
+            <div ng-show="question.type == 'slider'">
+              <div class="item range range-positive">
+                <i class="icon ion-ios-sunny-outline"></i>
+                  <input ng-model="data.sliderModel" value="{{data.sliderModel}}" type="range" name="volume" min="0" max="9">
+                <i class="icon ion-ios-sunny"></i>
+              </div>
+              <button class="button button-positive button-block" ng-click="sendSlider()">
+                Next Question
+              </button>
+            </div>
+        </ion-content>
+        <ion-content padding="true" class="has-header" ng-show="sorry">
+            <div class="spacer" style="width: 300px; height: 13px;"></div>
+            <h5 id="navigation-heading15" style="color:#000000;">Great Job</h5>
+            <div class="spacer" style="width: 300px; height: 13px;"></div>
+            <h5 id="navigation-heading12" style="color:#000000;font-weight:300;">You were survey taker 120 we really apperciate your support.</h5>
+            <div class="spacer" style="width: 300px; height: 5px;"></div>
+            <h5 id="navigation-heading13" style="color:#000000;font-weight:300;">Have time for one more?</h5>
+            <h2 id="navigation-heading11" style="color:#000000;font-weight:lighter;text-align:center;">Select another tag</h2>
+            <div class="spacer" style="width: 300px; height: 21px;"></div>
+            <ion-list>
+                <ion-item style="white-space:initial" 
+                    menu-close href="{{'app/t/' + t.title}}"
+                    ng-repeat="t in tags" 
+                    on-tap="reset()" 
+                    ng-show="t.questions.length > 0">
+                  <span class='tag-index'>{{t.questions.length}}</span>
+                  <span class=''>{{t.title}}</span>
+                </ion-item>
+            </ion-list>
         </div>
-        <div ng-show="question.type == 'slider'">
-          <div class="item range range-positive">
-            <i class="icon ion-ios-sunny-outline"></i>
-              <input ng-model="data.sliderModel" value="{{data.sliderModel}}" type="range" name="volume" min="0" max="9">
-            <i class="icon ion-ios-sunny"></i>
-          </div>
-          <button class="button button-positive button-block" ng-click="sendSlider()">
-            Next Question
-          </button>
-        </div>
-    </ion-content>
-    <ion-content padding="true" class="has-header" ng-show="sorry">
-        <div class="spacer" style="width: 300px; height: 13px;"></div>
-        <h5 id="navigation-heading15" style="color:#000000;">Great Job</h5>
-        <div class="spacer" style="width: 300px; height: 13px;"></div>
-        <h5 id="navigation-heading12" style="color:#000000;font-weight:300;">You were survey taker 120 we really apperciate your support.</h5>
-        <div class="spacer" style="width: 300px; height: 5px;"></div>
-        <h5 id="navigation-heading13" style="color:#000000;font-weight:300;">Have time for one more?</h5>
-        <h2 id="navigation-heading11" style="color:#000000;font-weight:lighter;text-align:center;">Select another tag</h2>
-        <div class="spacer" style="width: 300px; height: 21px;"></div>
-        <ion-list>
-            <ion-item style="white-space:initial" 
-                menu-close href="{{'app/t/' + t.title}}"
-                ng-repeat="t in tags" 
-                on-tap="reset()" 
-                ng-show="t.questions.length > 0">
-              <span class='tag-index'>{{t.questions.length}}</span>
-              <span class=''>{{t.title}}</span>
-            </ion-item>
-        </ion-list>
     </ion-content>
 </ion-view>
 
