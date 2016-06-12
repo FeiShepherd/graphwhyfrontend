@@ -64,3 +64,8 @@
 	   background-color: #0C63EE !important;
 	   opacity: 1;
 	}
+
+/* HEADER - TITLE */
+.title-center.header-item{
+	font-weight: 200;
+}

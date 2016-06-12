@@ -1,9 +1,11 @@
 <ion-view title="Questionnaire" id="page3">
     <ion-content padding="true" class="has-header" ng-show="!sorry">
         <div class='desktopProtector'>
-            <h3 id="questionnaire-heading10" style="color:#000000;font-weight:lighter;text-align:right;">Sponsored by GraphWhy</h3>
+            <!--
+                <h3 id="questionnaire-heading10" style="color:#000000;font-weight:lighter;text-align:right;">Sponsored by GraphWhy</h3>
+            -->
             <div class="spacer" style="width: 300px; height: 5px;"></div>
-            <h2 id="questionnaire-heading2" style="color:#000000;font-weight:lighter;text-align:center;">{{question.prompt}}</h2>
+            <h2 id="questionnaire-heading2" style="color:#000000;font-weight:300;text-align:center;">{{question.prompt}}</h2>
             <center><small id="questionnaire-heading2" style="color:#000000;font-weight:lighter;text-align:center;">{{question.explain}}</small></center>
             <div class="spacer" style="width: 300px; height: 19px;"></div>
             <div ng-show="question.type == 'multiplechoice'">
