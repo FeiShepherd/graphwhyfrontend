@@ -8,6 +8,11 @@
 		margin: 0 auto;
 		max-width: 80% !important;
 	}
+	.desktopProtector.aboutUs{
+		max-width: 500px !important;
+		letter-spacing: 1px;
+		line-height: 22px;
+	}
 }
 
 .item {
