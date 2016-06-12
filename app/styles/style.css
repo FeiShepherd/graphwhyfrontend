@@ -44,13 +44,18 @@
 .errorMessage{
 	color:red;
 }
-
-/* SOCIAL MEDIA LOGIN */
-#welcome-button-bar5 i{
-	font-size: 24px;
-}
-#welcome-button-bar5 .disable{
-	opacity: 0.25;
-    cursor: default !important;
-    pointer-events: none;
-}
+/* WELCOME PAGE FIXES */
+	/* SOCIAL MEDIA LOGIN */
+	#welcome-button-bar5 i{
+		font-size: 24px;
+	}
+	#welcome-button-bar5 .disable{
+		opacity: 0.25;
+	    cursor: default !important;
+	    pointer-events: none;
+	}
+	/* BUTTON INDENTATION */
+	.welcome-bar .button[disabled] {
+	   background-color: #0C63EE !important;
+	   opacity: 1;
+	}
