@@ -83,7 +83,21 @@ angular.module('starter.controllers', ['config'])
   $scope.checkLogin();
 })
 
-.controller('welcomeCtrl', function($rootScope,$scope,$stateParams,$http,env,$ionicHistory,$state) {
+.controller('welcomeCtrl', function($rootScope,$scope,$stateParams,$http,env,$ionicHistory,$state,$auth) {
+ $scope.authenticate = function(provider) {
+      $auth.authenticate(provider)
+        .then(function(response) {
+         console.log(response);
+    $http.post(env.api+'/user/socialLogin',
+      {token:response}).
+      then(function(resp){
+        console.log(resp.data);
+      })
+        })
+      .catch(function(response) {
+         // Something went wrong.
+        });
+    };
     //Error handling
     /*Very broken
     var email = $scope.registerData.email;
