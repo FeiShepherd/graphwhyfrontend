@@ -8,6 +8,11 @@
 		margin: 0 auto;
 		max-width: 80% !important;
 	}
+	.desktopProtector.aboutUs{
+		max-width: 500px !important;
+		letter-spacing: 1px;
+		line-height: 22px;
+	}
 }
 
 .item {
@@ -44,13 +49,23 @@
 .errorMessage{
 	color:red;
 }
+/* WELCOME PAGE FIXES */
+	/* SOCIAL MEDIA LOGIN */
+	#welcome-button-bar5 i{
+		font-size: 24px;
+	}
+	#welcome-button-bar5 .disable{
+		opacity: 0.25;
+	    cursor: default !important;
+	    pointer-events: none;
+	}
+	/* BUTTON INDENTATION */
+	.welcome-bar .button[disabled] {
+	   background-color: #0C63EE !important;
+	   opacity: 1;
+	}
 
-/* SOCIAL MEDIA LOGIN */
-#welcome-button-bar5 i{
-	font-size: 24px;
-}
-#welcome-button-bar5 .disable{
-	opacity: 0.25;
-    cursor: default !important;
-    pointer-events: none;
+/* HEADER - TITLE */
+.title-center.header-item{
+	font-weight: 200;
 }

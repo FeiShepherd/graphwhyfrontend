@@ -196,13 +196,16 @@ angular.module('starter.controllers', ['config'])
     $scope.createVoteData = {};
     $scope.sorry = false;
     $scope.question = {};
+
     $http.get(env.api+'/tag/'+$stateParams.tag).then(function(data){
-      if(data.data == 'finished set'){
+      console.log(data.data);
+      if(data.data == 'finished set' || data.data == 'no question'){
         $scope.sorry = true;
       }else{
         $scope.question = data.data;
       }
     })
+
     $scope.voteQuestion = function(i){
       $http.get(env.api+'/question/vote/'+$scope.question._id+'/'+i).then(function(data){
         $scope.reset();

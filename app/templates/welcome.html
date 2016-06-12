@@ -30,9 +30,9 @@
 <button ng-click="authenticate('twitch')">Sign in with Twitch</button>
 <button ng-click="authenticate('bitbucket')">Sign in with Bitbucket</button>
         <!-- MANUAL LOGIN -->
-        <div class="button-bar">
-            <button id="welcome-button8" class="button button-positive button-block" ng-click="switchWelcome('login')" ng-disabled="welcome=='login'">Log In</button>
+        <div class="button-bar welcome-bar">
             <button id="welcome-button7" class="button button-positive button-block" ng-click="switchWelcome('register')" ng-disabled="welcome=='register'">Sign Up</button>
+            <button id="welcome-button8" class="button button-positive button-block" ng-click="switchWelcome('login')" ng-disabled="welcome=='login'">Log In</button>
         </div>
         <!-- REGISTER FORM -->
         <form class="list" ng-show="welcome=='register'" ng-submit="doRegister()" >
