@@ -91,6 +91,7 @@ angular.module('starter.controllers', ['config'])
     $http.post(env.api+'/user/socialLogin',
       {token:response}).
       then(function(resp){
+        $rootScope.$broadcast('logged', resp.data.data.login);
         console.log(resp.data);
       })
         })
