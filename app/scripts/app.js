@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 var pathway;
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers', 'satellizer'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,8 +22,56 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
 })
-.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+.config(function($stateProvider, $urlRouterProvider, $locationProvider, $authProvider) {
 
+
+    // Optional: For client-side use (Implicit Grant), set responseType to 'token'
+    $authProvider.facebook({
+      clientId: '956433697784115',
+      responseType: 'token'
+    });
+
+    $authProvider.google({
+      clientId: 'Google Client ID'
+    });
+
+    $authProvider.github({
+      clientId: 'GitHub Client ID'
+    });
+
+    $authProvider.linkedin({
+      clientId: 'LinkedIn Client ID'
+    });
+
+    $authProvider.instagram({
+      clientId: 'Instagram Client ID'
+    });
+
+    $authProvider.yahoo({
+      clientId: 'Yahoo Client ID / Consumer Key'
+    });
+
+    $authProvider.live({
+      clientId: 'Microsoft Client ID'
+    });
+
+    $authProvider.twitch({
+      clientId: 'Twitch Client ID'
+    });
+
+    $authProvider.bitbucket({
+      clientId: 'Bitbucket Client ID'
+    });
+
+    // No additional setup required for Twitter
+
+    $authProvider.oauth2({
+      name: 'foursquare',
+      url: '/auth/foursquare',
+      clientId: 'Foursquare Client ID',
+      redirectUri: window.location.origin,
+      authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate',
+    });
   if(typeof pathway !== 'undefined'){
     if(pathway.substr(1).indexOf('/') == -1){
       pathway = window.location.pathname.substr(1)
