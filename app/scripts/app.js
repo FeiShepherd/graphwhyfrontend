@@ -32,7 +32,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'satellizer'])
     });
 
     $authProvider.google({
-      clientId: 'Google Client ID'
+      clientId: '301006473575-8k10q00as0cgmf30ioq769mqs6kc0mut.apps.googleusercontent.com',
+      responseType: 'token'
     });
 
     $authProvider.github({
