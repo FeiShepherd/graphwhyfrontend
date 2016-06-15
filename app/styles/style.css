@@ -70,6 +70,7 @@
 	font-weight: 200;
 }
 
+<<<<<<< Updated upstream
 /* PLACEHOLDER COLOR */
 ::-webkit-input-placeholder {
    color: #555 !important;
@@ -95,4 +96,17 @@
 } 
 .aboutUs p{
 	margin: 25px 0px;
+=======
+
+.property-thumb-info-content{
+  height:150px;
+}
+
+.property-thumb-info-image {
+    height: 200px;
+}
+img.img-responsive.imgprop {
+    position: absolute;
+    bottom: 0px;
+>>>>>>> Stashed changes
 }
