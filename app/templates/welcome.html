@@ -9,26 +9,16 @@
             <p>building statistical understanding</p>
         </div>
         <div class="spacer" style="width: 300px; height: 40px;"></div>
-        <!-- SOCIAL MEDIA LOGIN
+        <!-- SOCIAL MEDIA LOGIN -->
         <a class='toupp pull-left' href='/app/toupp'> Terms of Use & Privacy Policy </a>
         <a class='toupp pull-right' href='/app/dmca'> DMCA </a>
         <div id="welcome-button-bar5" class=" button-bar ">
-            <button id="welcome-button15" class=" button button-positive  button-block">sign in with &nbsp; <i class="ion-social-facebook"></i> </button>
+            <button id="welcome-button15" class=" button button-positive  button-block" ng-click="authenticate('facebook')">sign in with &nbsp; <i class="ion-social-facebook"></i> </button>
             <button id="welcome-button16" class=" button button-assertive disable button-block">sign in with &nbsp; <i class="ion-social-googleplus"></i></button>
         </div>
         <h5 id="welcome-heading14" style="color:#7A7A7A; font-weight:300;text-align:center;" class=" ">or</h5>
         <!-- SOCIAL MEDIA END -->
-<button ng-click="authenticate('facebook')">Sign in with Facebook</button>
-<button ng-click="authenticate('google')">Sign in with Google</button>
-<button ng-click="authenticate('github')">Sign in with GitHub</button>
-<button ng-click="authenticate('linkedin')">Sign in with LinkedIn</button>
-<button ng-click="authenticate('instagram')">Sign in with Instagram</button>
-<button ng-click="authenticate('twitter')">Sign in with Twitter</button>
-<button ng-click="authenticate('foursquare')">Sign in with Foursquare</button>
-<button ng-click="authenticate('yahoo')">Sign in with Yahoo</button>
-<button ng-click="authenticate('live')">Sign in with Windows Live</button>
-<button ng-click="authenticate('twitch')">Sign in with Twitch</button>
-<button ng-click="authenticate('bitbucket')">Sign in with Bitbucket</button>
+
         <!-- MANUAL LOGIN -->
         <div class="button-bar welcome-bar">
             <button id="welcome-button7" class="button button-positive button-block" ng-click="switchWelcome('register')" ng-disabled="welcome=='register'">Sign Up</button>
