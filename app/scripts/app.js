@@ -63,12 +63,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-    .state('app.sorry', {
-      url: '/sorry',
+    .state('app.graphs', {
+      url: '/graphs',
       views: {
         'menuContent': {
-          templateUrl: 'templates/sorry.html',
-          controller: 'sorryCtrl'
+          templateUrl: 'templates/database.html',
+          controller: 'graphsCtrl'
         }
       }
     })

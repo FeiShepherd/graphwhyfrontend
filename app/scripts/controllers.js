@@ -184,7 +184,7 @@ angular.module('starter.controllers', ['config'])
     $scope.question = {};
 
     $http.get(env.api+'/tag/'+$stateParams.tag).then(function(data){
-      console.log(data.data);
+      console.log(data);
       if(data.data == 'finished set' || data.data == 'no question'){
         $scope.sorry = true;
       }else{
@@ -209,4 +209,24 @@ angular.module('starter.controllers', ['config'])
     }
   }
   $scope.reset();
+})
+
+.controller('graphsCtrl', function(env,$scope,$http){
+  $scope.database = [];
+  $scope.correlations = [];
+
+  $http.get(env.api+'/question').then(function(data){
+    $scope.database = data.data;
+  })
+  $http.get(env.api+'/question/correlation').then(function(data){
+    var _correlations = data.data;
+    for(c in _correlations){
+      var push = false;
+      if(_correlations[c][Object.keys(_correlations[c])[0]][Object.keys(_correlations[c][Object.keys(_correlations[c])[0]])[0]].prompt != ""){
+        console.log(_correlations[c][Object.keys(_correlations[c])[0]][Object.keys(_correlations[c][Object.keys(_correlations[c])[0]])[0]].prompt);
+        $scope.correlations.push(_correlations[c])
+      }
+    }
+  })
+
 });
