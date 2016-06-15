@@ -10,13 +10,22 @@
         </div>
         <div class="spacer" style="width: 300px; height: 40px;"></div>
         <!-- SOCIAL MEDIA LOGIN -->
-        <a class='toupp pull-left' href='/app/toupp'> Terms of Use & Privacy Policy </a>
-        <a class='toupp pull-right' href='/app/dmca'> DMCA </a>
-        <div id="welcome-button-bar5" class=" button-bar ">
+        
+        
+        <div class='social signin'>
+            <div class='prompt'><u>Sign In with:</u></div>
+            <br/>
+            <img src='/images/facebook.png' class="facebook" ng-click="authenticate('facebook')" />
+            <img src='/images/google.png' class="disable"/>
+            <img src='/images/linkedin.png' class="disable"/>
+            <img src='/images/github.png' class="disable"/>
+            <img src='/images/twitter.png' class="disable"/>
+        </div>
+        <hr>
+        <!--
             <button id="welcome-button15" class=" button button-positive  button-block" ng-click="authenticate('facebook')">sign in with &nbsp; <i class="ion-social-facebook"></i> </button>
             <button id="welcome-button16" class=" button button-assertive disable button-block">sign in with &nbsp; <i class="ion-social-googleplus"></i></button>
-        </div>
-        <h5 id="welcome-heading14" style="color:#7A7A7A; font-weight:300;text-align:center;" class=" ">or</h5>
+        -->
         <!-- SOCIAL MEDIA END -->
 
         <!-- MANUAL LOGIN -->
@@ -53,6 +62,9 @@
             </label>
             <button class="button button-block button-positive" type="submit">Login</button>
         </form>
+        <a class='toupp pull-left' href='/app/toupp'> Terms of Use & Privacy Policy &nbsp;&nbsp;</a>
+        &nbsp;&nbsp;&nbsp;
+        <a class='toupp pull-left' href='/app/dmca'> DMCA </a>
       </div>
     </ion-content>
 </ion-view>

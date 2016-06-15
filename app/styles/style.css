@@ -64,6 +64,29 @@
 	   background-color: #0C63EE !important;
 	   opacity: 1;
 	}
+	/*SOCIAL BAR*/
+	.social.signin{
+		padding: 7px 15px;
+	}
+	.social.signin .facebook{
+		margin: 0px 10px;
+		width:  65px;
+		height: 65px;
+	}
+	.social.signin img{
+
+		width: 40px;
+		height: 40px;
+		display: inline-block;
+	}
+	.social.signin .disable{
+		opacity: .2;
+	}
+	.social.signin .prompt{
+		display: inline-block;
+		font-size: 1.18em;
+		padding: 10px 0px;
+	}
 
 /* HEADER - TITLE */
 .title-center.header-item{
@@ -96,3 +119,4 @@
 .aboutUs p{
 	margin: 25px 0px;
 }
+
