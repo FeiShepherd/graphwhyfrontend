@@ -69,10 +69,14 @@
 		padding: 7px 15px;
 	}
 	.social.signin .facebook{
-		margin: 0px 10px;
+		margin-right: 10px;
 		width:  65px;
 		height: 65px;
 	}
+		.social.signin .facebook:hover{
+			cursor:pointer;
+		}
+
 	.social.signin img{
 
 		width: 40px;
@@ -84,8 +88,8 @@
 	}
 	.social.signin .prompt{
 		display: inline-block;
-		font-size: 1.18em;
-		padding: 10px 0px;
+		font-size: .9em;
+		padding: 4px 0px;
 	}
 
 /* HEADER - TITLE */
