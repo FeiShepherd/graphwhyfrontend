@@ -1,10 +1,10 @@
 <ion-view view-title="Database">
     <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
     <div class="tabs">
-      <a class="tab-item active" href="#" ng-click="switchShow('polls')">
+      <a class="tab-item" href="#" ng-click="switchShow('polls')" ng-class="{'active': show=='polls'}">
         Polls
       </a>
-      <a class="tab-item" href="#" ng-click="switchShow('correlations')">
+      <a class="tab-item" href="#" ng-click="switchShow('correlations')" ng-class="{'active': show=='correlations'}">
         Correlation
       </a>
     </div>

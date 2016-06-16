@@ -186,6 +186,13 @@ angular.module('starter.controllers', ['config'])
       console.log(data);
       if(data.data == 'finished set' || data.data == 'no question'){
         $scope.sorry = true;
+        
+        $ionicHistory.nextViewOptions({
+          disableBack: true
+        });
+        $state.go('app.graphs');
+        
+        
       }else{
         $scope.question = data.data;
       }
