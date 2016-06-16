@@ -68,7 +68,6 @@ angular.module('starter.controllers', ['config'])
   }
   $scope.checkLogin = function(){
     $http.get(env.api+'/user/check').then(function(data){
-      console.log(data)
       $scope.loggedin = data.data.logged;
       $ionicHistory.nextViewOptions({
         disableBack: true
@@ -211,22 +210,40 @@ angular.module('starter.controllers', ['config'])
   $scope.reset();
 })
 
-.controller('graphsCtrl', function(env,$scope,$http){
+.controller('graphsCtrl', function(env, $scope, $http){
   $scope.database = [];
   $scope.correlations = [];
-
+  $scope.show = 'polls';
+  $scope.switchShow = function(t){
+    $scope.show = t;
+  }
+  $scope.roundOff = function(n){
+    return parseInt(n)
+  }
   $http.get(env.api+'/question').then(function(data){
-    $scope.database = data.data;
+    var _database = data.data.data;
+    for(var c in _database){
+      $scope.database.push(_database[c])
+    }
+    for(var i = 0; i < $scope.database.length; i++){
+      var sum = 0;
+      for(var a = 0; a < $scope.database[i].answers.length; a++){
+        sum += $scope.database[i].answers[a].votes;
+      }
+      $scope.database[i].sum = sum;
+    }
+    
+    console.log($scope.database)
   })
   $http.get(env.api+'/question/correlation').then(function(data){
     var _correlations = data.data;
-    for(c in _correlations){
+    for(var c in _correlations){
       var push = false;
       if(_correlations[c][Object.keys(_correlations[c])[0]][Object.keys(_correlations[c][Object.keys(_correlations[c])[0]])[0]].prompt != ""){
-        console.log(_correlations[c][Object.keys(_correlations[c])[0]][Object.keys(_correlations[c][Object.keys(_correlations[c])[0]])[0]].prompt);
         $scope.correlations.push(_correlations[c])
       }
     }
+    console.log($scope.correlations)
   })
 
 });

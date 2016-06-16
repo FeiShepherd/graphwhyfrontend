@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 
 // Constants =================================
-var PORT = 8100;
+var PORT = 3000;
 
 // Config =================================
 app.use(express.static(__dirname + '/www'));
@@ -16,4 +16,4 @@ app.all('*', function (req, res, next) {
 });
 
 // Listen =================================
-app.listen(PORT);
+app.listen(process.env.PORT, process.env.IP);
