@@ -257,9 +257,12 @@ angular.module('starter.controllers', ['config'])
         var _array = [];
         for(var _b in $scope.correlations[_a]){
           for(var _c in $scope.correlations[_a][_b]){
-            _array.push($scope.correlations[_a][_b][_c]);
+            if($scope.correlations[_a][_b][_c].answer1 && $scope.correlations[_a][_b][_c].answer2 && $scope.correlations[_a][_b][_c].percent )
+              if($scope.correlations[_a][_b][_c].answer1 != 'undefined' && $scope.correlations[_a][_b][_c].answer2 != 'undefined'  && $scope.correlations[_a][_b][_c].percent != 'undefined' )
+                _array.push($scope.correlations[_a][_b][_c]);
           }
         }
+        if(_array.length > 0)
         $scope.newCorrelations.push(_array)
       }
   })
