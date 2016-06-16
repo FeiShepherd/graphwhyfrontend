@@ -15,5 +15,10 @@ app.all('*', function (req, res, next) {
 	res.sendFile('www/index.html', { root: __dirname });
 });
 
+
 // Listen =================================
-app.listen(process.env.PORT, process.env.IP);
+if(!process.env.PORT){
+    app.listen(8100)
+}else{
+    app.listen(process.env.PORT, process.env.IP);
+}
