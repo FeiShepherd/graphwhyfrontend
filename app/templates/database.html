@@ -43,19 +43,32 @@
 	        <div id="welcome-markdown3" style="color:#A5A5A5;text-align:center;">
 
 	        </div>
-	        <div class="list card" ng-repeat="d in correlations">
-
-            <div>
-              <div ng-repeat="a in d">
-                <div ng-repeat="b in a">
-                  {{b.prompt}}
-                </div>
-              </div>
-              
-            </div>
+	        <div class="list card" ng-repeat="d in newCorrelations track by $index">
+	         
+	       
+	         
+            <select ng-model="newCorrelations[$index].percentSelect" ng-change="switchVal($index,newCorrelations[$index].percentSelect,'percent')">
+              <option selected value="{{$index}}" ng-repeat="c in d">{{c.percent}}</option>
+            </select>
+            % of users voted 
+            <select ng-model="newCorrelations[$index].answer1Select" ng-change="switchVal($index,newCorrelations[$index].answer1Select,'answer1')">
+              <option selected value="{{$index}}" ng-repeat="c in d">{{c.answer1}}</option>
+            </select>
             
+            in
+          
+            <strong>{{d[0].question1}}</strong>
+
+            voted 
+            <select ng-model="newCorrelations[$index].answer2Select" ng-change="switchVal($index,newCorrelations[$index].answer2Select,'answer2')">
+              <option selected value="{{$index}}" ng-repeat="c in d">{{c.answer2}}</option>
+            </select>
+            
+            in
+            
+             <strong>{{d[0].question2}}</strong>
+
           </div>
 	    </div>
     </ion-content>
 </ion-view>
-

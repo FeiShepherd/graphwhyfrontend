@@ -213,7 +213,9 @@ angular.module('starter.controllers', ['config'])
 .controller('graphsCtrl', function(env, $scope, $http){
   $scope.database = [];
   $scope.correlations = [];
+  $scope.newCorrelations = [];
   $scope.show = 'polls';
+  
   $scope.switchShow = function(t){
     $scope.show = t;
   }
@@ -232,18 +234,40 @@ angular.module('starter.controllers', ['config'])
       }
       $scope.database[i].sum = sum;
     }
-    
-    console.log($scope.database)
   })
   $http.get(env.api+'/question/correlation').then(function(data){
     var _correlations = data.data;
     for(var c in _correlations){
       var push = false;
       if(_correlations[c][Object.keys(_correlations[c])[0]][Object.keys(_correlations[c][Object.keys(_correlations[c])[0]])[0]].prompt != ""){
+        push = true;
+      }
+      if(push){
         $scope.correlations.push(_correlations[c])
       }
     }
-    console.log($scope.correlations)
+      for(var _a in $scope.correlations){
+        var _array = [];
+        for(var _b in $scope.correlations[_a]){
+          for(var _c in $scope.correlations[_a][_b]){
+            _array.push($scope.correlations[_a][_b][_c]);
+          }
+        }
+        $scope.newCorrelations.push(_array)
+      }
   })
-
+  $scope.switchVal = function(index,answer,option){
+    if(option=='answer1'){
+      $scope.newCorrelations[index].percentSelect = $scope.newCorrelations[index].answer1Select
+      $scope.newCorrelations[index].answer2Select = $scope.newCorrelations[index].answer1Select
+    }else if(option=='answer2'){
+      $scope.newCorrelations[index].answer1Select = $scope.newCorrelations[index].answer2Select
+      $scope.newCorrelations[index].percentSelect = $scope.newCorrelations[index].answer2Select
+    }else{
+      $scope.newCorrelations[index].answer1Select = $scope.newCorrelations[index].percentSelect
+      $scope.newCorrelations[index].answer2Select = $scope.newCorrelations[index].percentSelect
+    }
+   // angular.element(document.querySelector('#answer1-0'));
+  }
 });
+
