@@ -10,15 +10,14 @@
     </div>
 </div>
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        
         <div class='desktopProtector' ng-show="show=='polls'">
 	        <div class="spacer" style="width: 300px; height: 35px;"></div>
 	        <div id="welcome-markdown3" style="color:#A5A5A5;text-align:center;">
 
 	        </div>
 	        <div class="list card" ng-repeat="d in database">
-              <div class="item">
-                <h2>{{d.prompt}}</h2>
+              <div class="item" style="background-color:#387ef5">
+                <h2 style="color:white">{{d.prompt}}</h2>
                 <p>{{d.explain}}</p>
               </div>
             
@@ -44,28 +43,18 @@
 	        <div id="welcome-markdown3" style="color:#A5A5A5;text-align:center;">
 
 	        </div>
-	        <div class="list card" ng-repeat="d in database">
-              <div class="item">
-                <h2>{{d.prompt}}</h2>
-                <p>{{d.explain}}</p>
+	        <div class="list card" ng-repeat="d in correlations">
+
+            <div>
+              <div ng-repeat="a in d">
+                <div ng-repeat="b in a">
+                  {{b.prompt}}
+                </div>
               </div>
-            
-              <div class="item item-body">
-                <p>
-                    <div class="list" ng-repeat="c in d.answers" ng-show="c.title">
-                         {{c.title}}
-                      <div class="item range range-positive">
-                        <input type="range" name="volume" min="0" max="100" value="{{roundOff(c.votes/d.sum*100)}}" style="pointer-events: none;">
-                        <i>{{ roundOff(c.votes/d.sum*100) }}%</i>
-                      </div>
-                    </div>
-                </p>
-                <p>
-                  <a href="#" class="subdued">Total votes:{{d.sum}}</a>
-                </p>
-              </div>
-            
+              
             </div>
+            
+          </div>
 	    </div>
     </ion-content>
 </ion-view>
