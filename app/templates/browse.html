@@ -2,7 +2,7 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header">
       <div class='desktopProtector'>
         <div class="spacer" style="width: 300px; height: 5px;"></div>
-        <h1 id="questionSet-heading2" style="color:#000000;font-weight:lighter;">Current Tags</h1>
+        <h1 id="questionSet-heading2" style="color:#777;font-weight:400;">Current Question Sets</h1>
         <div class="spacer" style="width: 300px; height: 19px;"></div>
         <ion-list>
             <ion-item style="white-space:initial" 
@@ -10,8 +10,9 @@
                 ng-repeat="t in tags" 
                 on-tap="reset()" 
                 ng-show="t.questions.length > 0"> 
-                <span class='tag-index'>{{t.questions.length}}</span>
-                <span class=''>{{t.title}}</span>
+                <u><h1 class="questionSetTitle">{{t.title}}</h1></u>
+                <br/>
+                <span class="subInfo">This survey has {{t.questions.length}} questions.</span>
             </ion-item>
         </ion-list>
       </div>

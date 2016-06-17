@@ -3,9 +3,25 @@
   display: none !important;
 }
 
+.desktopProtector{
+	background-color:#fff;
+	padding:12px;
+}
+
+.welcomeHack{
+	margin-top: -44px;
+}
+
 @media screen and (min-width: 680px) {
+	ion-content{
+		padding: 0px;
+		height: 100%;
+		background-color: #B3E5FC;
+	}
 	.desktopProtector{
 		margin: 0 auto;
+		min-height: 100%;
+		padding: 30px;
 		max-width: 80% !important;
 	}
 	.desktopProtector.aboutUs{
@@ -14,9 +30,19 @@
 		line-height: 22px;
 	}
 }
+@media screen and (min-width: 980px) {
+	.desktopProtector{
+		max-width: 70% !important;
+	}
+}
+@media screen and (min-width: 1180px) {
+	.desktopProtector{
+		max-width: 60% !important;
+	}
+}
 
 .item {
-  white-space: initial;
+    white-space: initial;
 }
 .addOption{
 	padding:20px 15px 10px;
@@ -95,4 +121,18 @@
 } 
 .aboutUs p{
 	margin: 25px 0px;
+}
+
+/* BROWSE TEMPLATE */
+.questionSetTitle{
+	font-size: 2em;
+	color:#444;
+	font-weight: 200 !important;
+	margin: 15px 0px 0px !important;
+}
+.subInfo{
+	color:#888;
+}
+.tagSpacing{
+	padding-bottom: 25px !important;
 }
