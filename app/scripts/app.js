@@ -32,7 +32,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'satellizer'])
     });
 
     $authProvider.google({
-      clientId: '301006473575-8k10q00as0cgmf30ioq769mqs6kc0mut.apps.googleusercontent.com',
+      //for badshell clientId: '301006473575-8k10q00as0cgmf30ioq769mqs6kc0mut.apps.googleusercontent.com',
+      clientId: '301006473575-4isf5cmke1l6eohflcd4uu9fulcqqd69.apps.googleusercontent.com',
       responseType: 'token'
     });
 

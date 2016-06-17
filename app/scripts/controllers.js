@@ -89,7 +89,7 @@ angular.module('starter.controllers', ['config'])
         .then(function(response) {
          console.log(response);
     $http.post(env.api+'/user/socialLogin',
-      {token:response}).
+      {token:response, social:provider}).
       then(function(resp){
         $rootScope.$broadcast('logged', resp.data.data.login);
         console.log(resp.data);
