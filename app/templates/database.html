@@ -47,22 +47,22 @@
 	         
 	       
 	         
-            <select ng-model="newCorrelations[$index].percentSelect" ng-change="switchVal($index,newCorrelations[$index].percentSelect,'percent')">
-              <option selected value="{{$index}}" ng-repeat="c in d">{{c.percent}}</option>
-            </select>
+            <span ng-model="newCorrelations[$index].percentSelect" ng-change="switchVal($index,newCorrelations[$index].percentSelect,'percent')">
+              <span selected value="{{$index}}" ng-repeat="c in d">{{c.percent}}</span>
+            </span>
             % of users voted 
-            <select ng-model="newCorrelations[$index].answer1Select" ng-change="switchVal($index,newCorrelations[$index].answer1Select,'answer1')">
-              <option selected value="{{$index}}" ng-repeat="c in d">{{c.answer1}}</option>
-            </select>
+            <span ng-model="newCorrelations[$index].answer1Select" ng-change="switchVal($index,newCorrelations[$index].answer1Select,'answer1')">
+              <span selected value="{{$index}}" ng-repeat="c in d">{{c.answer1}}</span>
+            </span>
             
             in
           
             <strong>{{d[0].question1}}</strong>
 
             voted 
-            <select ng-model="newCorrelations[$index].answer2Select" ng-change="switchVal($index,newCorrelations[$index].answer2Select,'answer2')">
-              <option selected value="{{$index}}" ng-repeat="c in d">{{c.answer2}}</option>
-            </select>
+            <span ng-model="newCorrelations[$index].answer2Select" ng-change="switchVal($index,newCorrelations[$index].answer2Select,'answer2')">
+              <span selected value="{{$index}}" ng-repeat="c in d">{{c.answer2}}</span>
+            </span>
             
             in
             
