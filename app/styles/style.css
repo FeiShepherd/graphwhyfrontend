@@ -1,3 +1,32 @@
+/* IONIC MODIFICATIONS - C O L O R P A L L E T*/
+ion-view .button-positive[disabled] {
+	   background-color: #30b221 !important;
+	   opacity: 1;
+}
+ion-view .button-positive{
+	    background-color: #60dd52 !important; 
+	    border-color: #30b221 !important;
+}
+.bar.bar-stable {
+    border-color: #b2b2b2;
+    background-color: #fff3f4;
+    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
+    color: #444;
+}
+.tabs-striped.tabs-background-positive .tabs {
+    background-color: #60dd52;
+    background-image: none;
+}
+.tabs-background-positive .tabs, .tabs-background-positive > .tabs {
+    border-color: #30b221;
+}
+.list.card .item.header{
+	background-color:#30b221
+}
+
+
+
+
 /* ANGULAR FIXES */
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
@@ -16,7 +45,16 @@
 	ion-content{
 		padding: 0px;
 		height: 100%;
-		background-color: #B3E5FC;
+		background-image: url("../images/flowers.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	ion-content .side-menu-left{
+		padding: 0px;
+		height: 100%;
+		background-color: #fff !important;
+		background-image: none;
 	}
 	.desktopProtector{
 		margin: 0 auto;
@@ -86,10 +124,6 @@
 	    pointer-events: none;
 	}
 	/* BUTTON INDENTATION */
-	.welcome-bar .button[disabled] {
-	   background-color: #0C63EE !important;
-	   opacity: 1;
-	}
 
 /* HEADER - TITLE */
 .title-center.header-item{
