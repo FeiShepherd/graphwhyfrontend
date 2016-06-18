@@ -1,11 +1,74 @@
 <ion-view view-title="Database">
+    <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+    <div class="tabs">
+      <a class="tab-item" href="#" ng-click="switchShow('polls')" ng-class="{'active': show=='polls'}">
+        Polls
+      </a>
+      <a class="tab-item" href="#" ng-click="switchShow('correlations')" ng-class="{'active': show=='correlations'}">
+        Correlation
+      </a>
+    </div>
+</div>
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <div class='desktopProtector'>
+        <div class='desktopProtector' ng-show="show=='polls'">
 	        <div class="spacer" style="width: 300px; height: 35px;"></div>
 	        <div id="welcome-markdown3" style="color:#A5A5A5;text-align:center;">
-	            <p>Database</p>
+
 	        </div>
-	        {{database}}
+	        <div class="list card" ng-repeat="d in database">
+              <div class="item" style="background-color:#387ef5">
+                <h2 style="color:white">{{d.prompt}}</h2>
+                <p>{{d.explain}}</p>
+              </div>
+            
+              <div class="item item-body">
+                <p>
+                    <div class="list" ng-repeat="c in d.answers" ng-show="c.title">
+                         {{c.title}}
+                      <div class="item range range-positive">
+                        <input type="range" name="volume" min="0" max="100" value="{{roundOff(c.votes/d.sum*100)}}" style="pointer-events: none;">
+                        <i>{{ roundOff(c.votes/d.sum*100) }}%</i>
+                      </div>
+                    </div>
+                </p>
+                <p>
+                  <a href="#" class="subdued">Total votes:{{d.sum}}</a>
+                </p>
+              </div>
+            
+            </div>
+	    </div>
+        <div class='desktopProtector' ng-show="show=='correlations'">
+	        <div class="spacer" style="width: 300px; height: 35px;"></div>
+	        <div id="welcome-markdown3" style="color:#A5A5A5;text-align:center;">
+
+	        </div>
+	        <div class="list card" ng-repeat="d in newCorrelations track by $index">
+	         
+	       
+	         
+            <span ng-model="newCorrelations[$index].percentSelect" ng-change="switchVal($index,newCorrelations[$index].percentSelect,'percent')">
+              <span selected value="{{$index}}" ng-repeat="c in d">{{c.percent}}</span>
+            </span>
+            % of users voted 
+            <span ng-model="newCorrelations[$index].answer1Select" ng-change="switchVal($index,newCorrelations[$index].answer1Select,'answer1')">
+              <span selected value="{{$index}}" ng-repeat="c in d">{{c.answer1}}</span>
+            </span>
+            
+            in
+          
+            <strong>{{d[0].question1}}</strong>
+
+            voted 
+            <span ng-model="newCorrelations[$index].answer2Select" ng-change="switchVal($index,newCorrelations[$index].answer2Select,'answer2')">
+              <span selected value="{{$index}}" ng-repeat="c in d">{{c.answer2}}</span>
+            </span>
+            
+            in
+            
+             <strong>{{d[0].question2}}</strong>
+
+          </div>
 	    </div>
     </ion-content>
 </ion-view>

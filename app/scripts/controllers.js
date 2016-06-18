@@ -68,7 +68,6 @@ angular.module('starter.controllers', ['config'])
   }
   $scope.checkLogin = function(){
     $http.get(env.api+'/user/check').then(function(data){
-      console.log(data)
       $scope.loggedin = data.data.logged;
       $ionicHistory.nextViewOptions({
         disableBack: true
@@ -199,9 +198,16 @@ angular.module('starter.controllers', ['config'])
     $scope.question = {};
 
     $http.get(env.api+'/tag/'+$stateParams.tag).then(function(data){
-      console.log(data.data);
+      console.log(data);
       if(data.data == 'finished set' || data.data == 'no question'){
         $scope.sorry = true;
+        
+        $ionicHistory.nextViewOptions({
+          disableBack: true
+        });
+        $state.go('app.graphs');
+        
+        
       }else{
         $scope.question = data.data;
       }
@@ -224,4 +230,69 @@ angular.module('starter.controllers', ['config'])
     }
   }
   $scope.reset();
+})
+
+.controller('graphsCtrl', function(env, $scope, $http){
+  $scope.database = [];
+  $scope.correlations = [];
+  $scope.newCorrelations = [];
+  $scope.show = 'polls';
+  
+  $scope.switchShow = function(t){
+    $scope.show = t;
+  }
+  $scope.roundOff = function(n){
+    return parseInt(n)
+  }
+  $http.get(env.api+'/question').then(function(data){
+    var _database = data.data.data;
+    for(var c in _database){
+      $scope.database.push(_database[c])
+    }
+    for(var i = 0; i < $scope.database.length; i++){
+      var sum = 0;
+      for(var a = 0; a < $scope.database[i].answers.length; a++){
+        sum += $scope.database[i].answers[a].votes;
+      }
+      $scope.database[i].sum = sum;
+    }
+  })
+  $http.get(env.api+'/question/correlation').then(function(data){
+    var _correlations = data.data;
+    for(var c in _correlations){
+      var push = false;
+      if(_correlations[c][Object.keys(_correlations[c])[0]][Object.keys(_correlations[c][Object.keys(_correlations[c])[0]])[0]].prompt != ""){
+        push = true;
+      }
+      if(push){
+        $scope.correlations.push(_correlations[c])
+      }
+    }
+      for(var _a in $scope.correlations){
+        var _array = [];
+        for(var _b in $scope.correlations[_a]){
+          for(var _c in $scope.correlations[_a][_b]){
+            if($scope.correlations[_a][_b][_c].answer1 && $scope.correlations[_a][_b][_c].answer2 && $scope.correlations[_a][_b][_c].percent )
+              if($scope.correlations[_a][_b][_c].answer1 != 'undefined' && $scope.correlations[_a][_b][_c].answer2 != 'undefined'  && $scope.correlations[_a][_b][_c].percent != 'undefined' )
+                _array.push($scope.correlations[_a][_b][_c]);
+          }
+        }
+        if(_array.length > 0)
+        $scope.newCorrelations.push(_array)
+      }
+  })
+  $scope.switchVal = function(index,answer,option){
+    if(option=='answer1'){
+      $scope.newCorrelations[index].percentSelect = $scope.newCorrelations[index].answer1Select
+      $scope.newCorrelations[index].answer2Select = $scope.newCorrelations[index].answer1Select
+    }else if(option=='answer2'){
+      $scope.newCorrelations[index].answer1Select = $scope.newCorrelations[index].answer2Select
+      $scope.newCorrelations[index].percentSelect = $scope.newCorrelations[index].answer2Select
+    }else{
+      $scope.newCorrelations[index].answer1Select = $scope.newCorrelations[index].percentSelect
+      $scope.newCorrelations[index].answer2Select = $scope.newCorrelations[index].percentSelect
+    }
+   // angular.element(document.querySelector('#answer1-0'));
+  }
 });
+

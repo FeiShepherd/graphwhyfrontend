@@ -1,37 +1,35 @@
 <ion-view title="Questionnaire" id="page3">
     <ion-content padding="true" class="has-header" ng-show="!sorry">
         <div class='desktopProtector'>
-            <!--
-                <h3 id="questionnaire-heading10" style="color:#000000;font-weight:lighter;text-align:right;">Sponsored by GraphWhy</h3>
-            -->
-            <div class="spacer" style="width: 300px; height: 5px;"></div>
-            <h2 id="questionnaire-heading2" style="color:#000000;font-weight:300;text-align:center;">{{question.prompt}}</h2>
-            <center><small id="questionnaire-heading2" style="color:#000000;font-weight:lighter;text-align:center;">{{question.explain}}</small></center>
-            <div class="spacer" style="width: 300px; height: 19px;"></div>
-            <div ng-show="question.type == 'multiplechoice'">
-              <ion-list>
-                  <ion-item 
-                    ng-repeat="a in question.answers track by $index"
-                    ng-click="voteQuestion($index)" 
-                    ng-click="reset()" 
-                    ng-hide="!a.title">{{a.title}}</ion-item>
-              </ion-list>
-              <h5 class='addOption'><u>Add an answer option</u></h5>
-                <label class="item item-input">
-                    <input type="text" placeholder="Your answer option here" ng-model="createVoteData.customoption">
-                </label>
-                <button id="createQuestionsDontNeed-button13" class="button button-positive  button-block" on-tap="createAnswer()">Create answer</button>
+          <div class="spacer" style="width: 300px; height: 5px;"></div>
+          <h2 id="questionnaire-heading2" style="color:#000000;font-weight:300;text-align:center;">{{question.prompt}}</h2>
+          <center><small id="questionnaire-heading2" style="color:#000000;font-weight:lighter;text-align:center;">{{question.explain}}</small></center>
+          <div class="spacer" style="width: 300px; height: 19px;"></div>
+          <div ng-show="question.type == 'multiplechoice'">
+            <ion-list>
+                <ion-item 
+                  ng-repeat="a in question.answers track by $index"
+                  ng-click="voteQuestion($index)" 
+                  ng-click="reset()" 
+                  ng-hide="!a.title">{{a.title}}</ion-item>
+            </ion-list>
+            <h5 class='addOption'>Add an answer option</h5>
+              <label class="item item-input">
+                  <input type="text" placeholder="Your answer option here" ng-model="createVoteData.customoption">
+              </label>
+              <button id="createQuestionsDontNeed-button13" class="button button-positive  button-block" on-tap="createAnswer()">Create answer</button>
+          </div>
+          <div ng-show="question.type == 'slider'">
+            <div class="item range range-positive">
+              <i class="icon ion-ios-sunny-outline"></i>
+                <input ng-model="data.sliderModel" value="{{data.sliderModel}}" type="range" name="volume" min="0" max="9">
+              <i class="icon ion-ios-sunny"></i>
             </div>
-            <div ng-show="question.type == 'slider'">
-              <div class="item range range-positive">
-                <i class="icon ion-ios-sunny-outline"></i>
-                  <input ng-model="data.sliderModel" value="{{data.sliderModel}}" type="range" name="volume" min="0" max="9">
-                <i class="icon ion-ios-sunny"></i>
-              </div>
-              <button class="button button-positive button-block" ng-click="sendSlider()">
-                Next Question
-              </button>
-            </div>
+            <button class="button button-positive button-block" ng-click="sendSlider()">
+              Next Question
+            </button>
+          </div>
+        </div>
         </ion-content>
         <ion-content padding="true" class="has-header" ng-show="sorry">
             <div class="spacer" style="width: 300px; height: 13px;"></div>

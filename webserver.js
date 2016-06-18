@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 
 // Constants =================================
-var PORT = 8100;
+var PORT = 3000;
 
 // Config =================================
 app.use(express.static(__dirname + '/www'));
@@ -15,5 +15,10 @@ app.all('*', function (req, res, next) {
 	res.sendFile('www/index.html', { root: __dirname });
 });
 
+
 // Listen =================================
-app.listen(PORT);
+if(!process.env.PORT){
+    app.listen(8100)
+}else{
+    app.listen(process.env.PORT, process.env.IP);
+}
