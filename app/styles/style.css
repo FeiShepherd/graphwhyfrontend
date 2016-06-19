@@ -33,27 +33,46 @@ ion-view .button-positive{
   display: none !important;
 }
 
+
+
+/* DESKTOP PROTECTOR */
 .desktopProtector{
 	background-color:#fff;
 	padding:12px;
+}
+.desktopProtector.party{
+	margin-top: 12px;
+}
+.desktopProtector.party h5{
+	padding-top: 0px;
+	margin-top: 12px;
+}
+.desktopProtector.solo{
+	min-height:100% !important;
+}
+
+.polls .desktopProtector{
+	padding: 0px;
+	background-color:rgba(255, 255, 255, 0);
 }
 
 .welcomeHack{
 	margin-top: -44px;
 }
 
+
+ion-content{
+	padding: 0px;
+	min-height: 100%;
+	background-image: url("../images/flowers.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 @media screen and (min-width: 680px) {
-	ion-content{
-		padding: 0px;
-		height: 100%;
-		background-image: url("../images/flowers.jpg");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
 	ion-content .side-menu-left{
 		padding: 0px;
-		height: 100%;
 		background-color: #fff !important;
 		background-image: none;
 	}

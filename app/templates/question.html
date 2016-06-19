@@ -13,12 +13,15 @@
                   ng-click="reset()" 
                   ng-hide="!a.title">{{a.title}}</ion-item>
             </ion-list>
-            <h5 class='addOption'>Add an answer option</h5>
-              <label class="item item-input">
-                  <input type="text" placeholder="Your answer option here" ng-model="createVoteData.customoption">
-              </label>
-              <button id="createQuestionsDontNeed-button13" class="button button-positive  button-block" on-tap="createAnswer()">Create answer</button>
           </div>
+        </div>
+        <div class="desktopProtector party" ng-show="question.type == 'multiplechoice'">
+          <h5 class='addOption'>Add an answer option</h5>
+            <label class="item item-input">
+                <input type="text" placeholder="Your answer option here" ng-model="createVoteData.customoption">
+            </label>
+            <button id="createQuestionsDontNeed-button13" class="button button-positive  button-block" on-tap="createAnswer()">Create answer</button>
+        </div>
           <div ng-show="question.type == 'slider'">
             <div class="item range range-positive">
               <i class="icon ion-ios-sunny-outline"></i>
