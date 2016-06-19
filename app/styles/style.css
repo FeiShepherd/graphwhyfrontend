@@ -1,27 +1,27 @@
 /* IONIC MODIFICATIONS - C O L O R P A L L E T*/
 ion-view .button-positive[disabled] {
-	   background-color: #30b221 !important;
+	   background-color: #55b499 !important;
 	   opacity: 1;
 }
 ion-view .button-positive{
-	    background-color: #60dd52 !important; 
-	    border-color: #30b221 !important;
+	    background-color: #6ad1b4 !important; 
+	    border-color: #6ad1b4 !important;
 }
 .bar.bar-stable {
     border-color: #b2b2b2;
-    background-color: #FFEBEE;
+    background-color: rgba(255, 235, 238, 0.89);
     background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
     color: #444;
 }
 .tabs-striped.tabs-background-positive .tabs {
-    background-color: #60dd52;
+    background-color: rgba(82, 221, 184, 0.71);
     background-image: none;
 }
 .tabs-background-positive .tabs, .tabs-background-positive > .tabs {
-    border-color: #30b221;
+    border-color: #70e5c4;
 }
 .list.card .item.header{
-	background-color:#30b221
+	background-color:#6ad1b4;
 }
 
 
@@ -61,13 +61,14 @@ ion-view .button-positive{
 	margin-bottom: 12px;
 }
 
-ion-content{
-	padding: 0px;
-	min-height: 100%;
+ion-view{
 	background-image: url("../images/flowers.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+}
+ion-content{
+	padding-bottom: 12px;
 }
 
 @media screen and (min-width: 680px) {
