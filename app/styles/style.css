@@ -40,12 +40,9 @@ ion-view .button-positive{
 	background-color:#fff;
 	padding:12px;
 }
-.desktopProtector.party{
-	margin-top: 12px;
-}
 .desktopProtector.party h5{
 	padding-top: 0px;
-	margin-top: 12px;
+	margin-top: 0px;
 }
 .desktopProtector.solo{
 	min-height:100% !important;
@@ -60,6 +57,9 @@ ion-view .button-positive{
 	margin-top: -44px;
 }
 
+.mb{
+	margin-bottom: 12px;
+}
 
 ion-content{
 	padding: 0px;
