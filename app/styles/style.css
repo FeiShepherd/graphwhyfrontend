@@ -135,6 +135,7 @@ ion
 	.social.signin .working{
 		width:  48px;
 		height: 48px;
+		cursor: pointer;
 	}
 	.social.signin .working:last-child{
 		margin-right: 10px;
