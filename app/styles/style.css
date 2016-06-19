@@ -52,7 +52,7 @@ ion-view .button-positive{
 }
 
 .polls .desktopProtector{
-	padding: 0px;
+	padding-bottom: 12px;
 	background-color:rgba(255, 255, 255, 0);
 }
 
