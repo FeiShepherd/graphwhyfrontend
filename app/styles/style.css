@@ -24,7 +24,7 @@ ion-view .button-positive{
 	background-color:#30b221
 }
 
-ion
+
 
 
 
@@ -164,6 +164,7 @@ ion
 	font-weight: 200;
 }
 
+
 /* PLACEHOLDER COLOR */
 ::-webkit-input-placeholder {
    color: #555 !important;
@@ -189,6 +190,7 @@ ion
 } 
 .aboutUs p{
 	margin: 25px 0px;
+
 }
 
 /* BROWSE TEMPLATE */
@@ -203,4 +205,15 @@ ion
 }
 .tagSpacing{
 	padding-bottom: 25px !important;
+}
+.property-thumb-info-content{
+  height:150px;
+}
+
+.property-thumb-info-image {
+    height: 200px;
+}
+img.img-responsive.imgprop {
+    position: absolute;
+    bottom: 0px;
 }

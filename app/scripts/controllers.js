@@ -190,11 +190,11 @@ angular.module('starter.controllers', ['config'])
 })
 
 .controller('questionCtrl', function(env, $scope, $stateParams, $http, $state, $ionicHistory) {
+  $scope.sorry = false;
   $scope.reset = function(){
     $scope.data = {};
     $scope.data.sliderModel = 5;
     $scope.createVoteData = {};
-    $scope.sorry = false;
     $scope.question = {};
 
     $http.get(env.api+'/tag/'+$stateParams.tag).then(function(data){
