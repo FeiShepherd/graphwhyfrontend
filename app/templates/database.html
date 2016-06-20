@@ -40,9 +40,43 @@
       </div>
   	</div>
   	<!-- THE CORRELATION TAB -->
-    <div class='desktopProtector' ng-show="show=='correlations'">
+    <div class='desktopProtector correlation' ng-show="show=='correlations'">
       <div class="spacer" style="width: 300px; height: 35px;"></div>
       <div id="welcome-markdown3" style="color:#A5A5A5;text-align:center;"></div>
+
+
+      <!-- CORRELATION PROP -->
+      <!-- CORRELATION HEADER -->
+      <div class="item header cor-header">
+      	<h1 class="super">
+      		30%
+      	</h1>
+      	<h3>
+      		of users <br/> who voted:
+      	</h3>
+      </div>
+      <div class="item item-body">
+	      <div class="question one">
+	      	<span>Are you interested in living forever?</span>
+	      	<h3>Yes</h3>
+	      </div>
+	      <div class="also">
+	      	<i>also voted</i>
+	      </div>
+	      <div class="question two">
+	      	<span>Do you consider yourself the cat pajama's?</span>
+	      	<h3>No</h3>
+	      </div>
+	      <div class="votes">
+	      	<span class="">
+	      		Calculated with 23 votes.
+	      	</span>
+	      </div>
+      </div>
+
+
+      <!-- WORKING CORRELATION -->
+      <!-- D IN NEWCORRELATIONS TRACK BY $INDEX -->
       <div class="list card" ng-repeat="d in newCorrelations track by $index">       
       	<div class="item item-body">
 	        <span ng-model="newCorrelations[$index].percentSelect" ng-change="switchVal($index,newCorrelations[$index].percentSelect,'percent')">

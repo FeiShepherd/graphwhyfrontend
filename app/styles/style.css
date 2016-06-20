@@ -153,8 +153,8 @@ ion-content{
 		padding: 7px 15px;
 	}
 	.social.signin .working{
-		width:  48px;
-		height: 48px;
+		width:  43px;
+		height: 43px;
 		cursor: pointer;
 	}
 	.social.signin .working:last-child{
@@ -177,6 +177,7 @@ ion-content{
 		display: inline-block;
 		font-size: .9em;
 		padding: 4px 0px;
+		width: 150px;
 	}
 
 /* HEADER - TITLE */
@@ -236,4 +237,52 @@ ion-content{
 img.img-responsive.imgprop {
     position: absolute;
     bottom: 0px;
+}
+
+
+
+/* DATABASE POLLS TWEEKS */
+.item h2{
+	white-space: normal;
+}
+
+
+/* Correlation CSS */
+.cor-header h3{
+	display: inline-block;
+	margin-bottom: 17px !important;
+	margin-left: 5px !important;
+	font-weight: 200;
+	font-size: 1.35em;
+}
+.super{
+	margin-left: 5px;
+	font-size: 50px;
+	display: inline-block;
+}
+.cor-header{
+	padding-bottom: 0px;
+}
+.correlation .item-body h3{
+	margin-top:5px;
+}
+.also{
+	text-align: center;
+	margin: 25px;
+}
+.correlation .question:1st-child{
+	margin-top: 8px;
+}
+.question{
+	text-align: center;
+}
+.correlation .question{
+	color:#777;
+}
+.votes{
+	margin-top: 25px;
+}
+.votes span{
+	font-size: .85em;
+	color:#999;
 }
